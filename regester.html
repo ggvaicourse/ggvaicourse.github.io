@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration | AI Certificate Programs - GGV</title>
+  <meta name="description" content="Register for AI Certificate Programs at Guru Ghasidas Vishwavidyalaya. Fill your details, upload ID card, pay fee and submit payment screenshot.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="https://thumb.wikimedia.org/wikipedia/en/thumb/3/3a/Guru_Ghasidas_University_Insignia.svg/500px-Guru_Ghasidas_University_Insignia.svg.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f5fc;
+      color: #0b1e33;
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 24px 0 60px;
+    }
+
+    :root {
+      --ggu-blue: #0a2f6c;
+      --ggu-gold: #f5b041;
+      --card-shadow: 0 10px 30px -5px rgba(10, 47, 108, 0.1);
+      --border: #dce6f2;
+    }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 0 18px; }
+
+    /* ---------- HEADER ---------- */
+    .reg-header {
+      background: white;
+      border-radius: 22px;
+      padding: 22px 26px;
+      box-shadow: var(--card-shadow);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    .reg-header img { height: 56px; width: auto; }
+
+    .reg-header-text h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ggu-blue);
+      line-height: 1.25;
+    }
+
+    .reg-header-text span {
+      font-size: 0.8rem;
+      color: #4d627c;
+      font-weight: 500;
+    }
+
+    /* ---------- STEP INDICATOR ---------- */
+    .steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      position: relative;
+      padding: 0 4px;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 17px;
+      left: 40px;
+      right: 40px;
+      height: 3px;
+      background: #dbe6f3;
+      z-index: 0;
+    }
+
+    .step {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .step-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #dbe6f3;
+      color: #8ba3bf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+
+    .step.active .step-circle {
+      border-color: var(--ggu-blue);
+      background: var(--ggu-blue);
+      color: white;
+    }
+
+    .step.done .step-circle {
+      border-color: #2ecc71;
+      background: #2ecc71;
+      color: white;
+    }
+
+    .step span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #7d93ae;
+      text-align: center;
+    }
+
+    .step.active span { color: var(--ggu-blue); }
+
+    /* ---------- FORM CARD ---------- */
+    .form-card {
+      background: white;
+      border-radius: 22px;
+      padding: 30px 26px 26px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .form-step { display: none; animation: fade 0.35s ease; }
+    .form-step.active { display: block; }
+
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-step h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0a1c36;
+      margin-bottom: 4px;
+    }
+
+    .form-step .hint {
+      font-size: 0.82rem;
+      color: #6b8099;
+      margin-bottom: 22px;
+    }
+
+    /* ---------- FORM ELEMENTS ---------- */
+    .field { margin-bottom: 18px; }
+
+    .field label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #1f3a5f;
+      margin-bottom: 6px;
+    }
+
+    .field label .req { color: #e74c3c; margin-left: 2px; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1.5px solid var(--border);
+      border-radius: 13px;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      background: #fafdff;
+      transition: border 0.2s, background 0.2s;
+      outline: none;
+      color: #0b1e33;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--ggu-blue);
+      background: white;
+    }
+
+    .field input.error,
+    .field select.error,
+    .field textarea.error {
+      border-color: #e74c3c;
+      background: #fff5f5;
+    }
+
+    .field .err-msg {
+      display: none;
+      color: #e74c3c;
+      font-size: 0.74rem;
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
+    .field .err-msg.show { display: block; }
+
+    .row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Radio group */
+    .radio-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .radio-option {
+      flex: 1;
+      min-width: 140px;
+      position: relative;
+    }
+
+    .radio-option input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .radio-option label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fafdff;
+      margin: 0;
+      font-weight: 500;
+      font-size: 0.88rem;
+      color: #2c405b;
+    }
+
+    .radio-option label i {
+      color: #8ba3bf;
+      font-size: 1rem;
+    }
+
+    .radio-option input:checked + label {
+      border-color: var(--ggu-blue);
+      background: #eaf2ff;
+      color: var(--ggu-blue);
+      font-weight: 600;
+    }
+
+    .radio-option input:checked + label i { color: var(--ggu-blue); }
+
+    /* Upload box */
+    .upload-box {
+      border: 2px dashed #b9cfe6;
+      border-radius: 16px;
+      padding: 24px 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: #fafdff;
+      position: relative;
+    }
+
+    .upload-box:hover, .upload-box.dragover {
+      border-color: var(--ggu-blue);
+      background: #eef5ff;
+    }
+
+    .upload-box.has-file {
+      border-style: solid;
+      border-color: #2ecc71;
+      background: #f2fdf5;
+    }
+
+    .upload-box input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .upload-box i {
+      font-size: 1.8rem;
+      color: var(--ggu-blue);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .upload-box .up-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1f3a5f;
+    }
+
+    .upload-box .up-sub {
+      font-size: 0.75rem;
+      color: #8ba3bf;
+      margin-top: 4px;
+    }
+
+    .upload-box .file-name {
+      font-size: 0.82rem;
+      color: #2ecc71;
+      font-weight: 600;
+      margin-top: 8px;
+      display: none;
+      word-break: break-all;
+    }
+
+    .upload-box.has-file .file-name { display: block; }
+
+    /* ---------- BANK DETAILS BOX ---------- */
+    .bank-box {
+      background: #f0f7ff;
+      border: 1.5px solid #cfe0f5;
+      border-radius: 18px;
+      padding: 22px 20px;
+      margin-bottom: 22px;
+    }
+
+    .bank-box h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ggu-blue);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bank-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .bank-table td {
+      padding: 7px 0;
+      vertical-align: top;
+      color: #1d314b;
+    }
+
+    .bank-table td:first-child {
+      font-weight: 600;
+      color: #3f536c;
+      width: 42%;
+    }
+
+    .bank-table td:last-child {
+      font-weight: 600;
+      color: #0a2f6c;
+      word-break: break-all;
+    }
+
+    .bank-note {
+      background: #fff8e8;
+      border-left: 4px solid var(--ggu-gold);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      color: #7a5a17;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    /* QR code box */
+    .qr-box {
+      background: white;
+      border: 1.5px solid #dbe6f3;
+      border-radius: 18px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .qr-box h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0a1c36;
+      margin-bottom: 14px;
+    }
+
+    .qr-box img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid #e0ebf7;
+    }
+
+    .qr-box .qr-note {
+      font-size: 0.75rem;
+      color: #7d93ae;
+      margin-top: 10px;
+    }
+
+    /* ---------- BUTTONS ---------- */
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      flex: 1;
+      min-width: 130px;
+      padding: 14px 22px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--ggu-blue);
+      color: white;
+      box-shadow: 0 8px 20px -6px rgba(10, 47, 108, 0.4);
+    }
+
+    .btn-primary:hover { background: #0d3d8a; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: white;
+      color: var(--ggu-blue);
+      border: 2px solid var(--ggu-blue);
+    }
+
+    .btn-secondary:hover { background: #eef5ff; }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* ---------- SUCCESS ---------- */
+    .success-box {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .success-box .check {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #e8faf0;
+      color: #2ecc71;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      margin: 0 auto 20px;
+    }
+
+    .success-box h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #0a1c36;
+      margin-bottom: 10px;
+    }
+
+    .success-box p {
+      font-size: 0.92rem;
+      color: #4d627c;
+      max-width: 440px;
+      margin: 0 auto 12px;
+    }
+
+    .success-box .ref {
+      display: inline-block;
+      background: #eef5ff;
+      color: var(--ggu-blue);
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      margin: 12px 0 24px;
+      letter-spacing: 0.5px;
+    }
+
+    /* ---------- LOADER + TIMER ---------- */
+    .loader-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 22px;
+      z-index: 3000;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .loader-overlay.show { display: flex; }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 5px solid #dbe6f3;
+      border-top-color: var(--ggu-blue);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loader-overlay h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ggu-blue);
+      margin: 0;
+    }
+
+    .loader-overlay p {
+      font-weight: 500;
+      color: #4d627c;
+      font-size: 0.9rem;
+      max-width: 420px;
+      margin: 0;
+    }
+
+    .timer-badge {
+      background: #fff8e8;
+      border: 2px solid #f5b041;
+      border-radius: 50px;
+      padding: 12px 26px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      color: #7a5a17;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-badge i {
+      color: #f5b041;
+      font-size: 1.2rem;
+    }
+
+    .timer-warning {
+      background: #fff5f5;
+      border: 1.5px solid #f5c6c6;
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 0.82rem;
+      color: #a93226;
+      max-width: 440px;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 600px) {
+      body { padding: 14px 0 40px; }
+      .reg-header { padding: 16px 18px; gap: 12px; }
+      .reg-header img { height: 44px; }
+      .reg-header-text h1 { font-size: 1rem; }
+      .reg-header-text span { font-size: 0.7rem; }
+      .form-card { padding: 22px 18px 20px; border-radius: 18px; }
+      .row-2 { grid-template-columns: 1fr; gap: 0; }
+      .steps::before { left: 24px; right: 24px; }
+      .step-circle { width: 30px; height: 30px; font-size: 0.75rem; }
+      .step span { font-size: 0.6rem; }
+      .btn { padding: 13px 16px; font-size: 0.85rem; }
+      .radio-option { min-width: 100%; }
+      .bank-table td:first-child { width: 48%; font-size: 0.8rem; }
+      .bank-table td:last-child { font-size: 0.8rem; }
+      .timer-badge { font-size: 1rem; padding: 10px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== LOADER + TIMER OVERLAY ========== -->
+  <div class="loader-overlay" id="loaderOverlay">
+    <div class="spinner"></div>
+    <h3 id="loaderTitle">Submitting your registration...</h3>
+    <p id="loaderText">Please wait while we upload your files and register your application.</p>
+
+    <!-- 5-minute countdown timer -->
+    <div class="timer-badge" id="timerBadge">
+      <i class="fas fa-hourglass-half"></i>
+      <span id="timerDisplay">05:00</span>
+    </div>
+
+    <div class="timer-warning" id="timerWarning" style="display:none;">
+      <strong>⚠️ Do not close this page.</strong> Your registration is still being processed in the background.
+      If it takes longer than expected, please wait — closing the page may interrupt the upload.
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- ========== HEADER ========== -->
+    <div class="reg-header">
+      <img src="https://thumb.wikimedia.org/wikipedia/en/thumb/3/3a/Guru_Ghasidas_University_Insignia.svg/500px-Guru_Ghasidas_University_Insignia.svg.png" alt="GGU Logo">
+      <div class="reg-header-text">
+        <h1>AI Certificate Programs – Registration</h1>
+        <span>Guru Ghasidas Vishwavidyalaya · 2026</span>
+      </div>
+    </div>
+
+    <!-- ========== STEP INDICATOR ========== -->
+    <div class="steps" id="stepIndicator">
+      <div class="step active" data-step="1">
+        <div class="step-circle">1</div>
+        <span>Personal</span>
+      </div>
+      <div class="step" data-step="2">
+        <div class="step-circle">2</div>
+        <span>Program</span>
+      </div>
+      <div class="step" data-step="3">
+        <div class="step-circle">3</div>
+        <span>Payment</span>
+      </div>
+      <div class="step" data-step="4">
+        <div class="step-circle">4</div>
+        <span>Verify</span>
+      </div>
+    </div>
+
+    <!-- ========== FORM ========== -->
+    <div class="form-card">
+      <form id="registrationForm" novalidate>
+
+        <!-- ================= STEP 1: PERSONAL DETAILS ================= -->
+        <div class="form-step active" data-step="1">
+          <h2>Personal Details</h2>
+          <p class="hint">All fields marked with <span style="color:#e74c3c;">*</span> are mandatory.</p>
+
+          <div class="field">
+            <label for="fullName">Full Name <span class="req">*</span></label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" autocomplete="name">
+            <div class="err-msg" id="err-fullName">Please enter your full name.</div>
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+              <div class="err-msg" id="err-email">Please enter a valid email address.</div>
+            </div>
+            <div class="field">
+              <label for="mobile">Mobile Number <span class="req">*</span></label>
+              <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" maxlength="10" autocomplete="tel">
+              <div class="err-msg" id="err-mobile">Please enter a valid 10-digit mobile number.</div>
+            </div>
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label for="dob">Date of Birth <span class="req">*</span></label>
+              <input type="date" id="dob" name="dob">
+              <div class="err-msg" id="err-dob">Please select your date of birth.</div>
+            </div>
+            <div class="field">
+              <label for="gender">Gender <span class="req">*</span></label>
+              <select id="gender" name="gender">
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+              </select>
+              <div class="err-msg" id="err-gender">Please select your gender.</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="address">Address <span class="req">*</span></label>
+            <textarea id="address" name="address" rows="3" placeholder="Enter your full address"></textarea>
+            <div class="err-msg" id="err-address">Please enter your address.</div>
+          </div>
+
+          <!-- GGV Student Question -->
+          <div class="field">
+            <label>Are you a GGV Student? <span class="req">*</span></label>
+            <div class="radio-group" id="ggvRadioGroup">
+              <div class="radio-option">
+                <input type="radio" name="isGGV" id="ggvYes" value="Yes">
+                <label for="ggvYes"><i class="fas fa-university"></i> Yes, I am a GGV student</label>
+              </div>
+              <div class="radio-option">
+                <input type="radio" name="isGGV" id="ggvNo" value="No">
+                <label for="ggvNo"><i class="fas fa-user"></i> No, external participant</label>
+              </div>
+            </div>
+            <div class="err-msg" id="err-isGGV">Please select an option.</div>
+          </div>
+
+          <!-- ID Card Upload (only for GGV students) -->
+          <div class="field" id="idCardField" style="display:none;">
+            <label for="idCard">Upload GGV ID Card <span class="req">*</span></label>
+            <div class="upload-box" id="idCardBox">
+              <input type="file" id="idCard" name="idCard" accept="image/*,.pdf">
+              <i class="fas fa-id-card"></i>
+              <div class="up-title">Click or drag to upload ID card</div>
+              <div class="up-sub">JPG, PNG or PDF · Max 5 MB</div>
+              <div class="file-name" id="idCardFileName"></div>
+            </div>
+            <div class="err-msg" id="err-idCard">Please upload your GGV ID card.</div>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary" id="step1Next">
+              Next <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= STEP 2: PROGRAM DETAILS ================= -->
+        <div class="form-step" data-step="2">
+          <h2>Program Details</h2>
+          <p class="hint">Select the certificate program you want to enroll in.</p>
+
+          <div class="field">
+            <label for="program">Select Program <span class="req">*</span></label>
+            <select id="program" name="program">
+              <option value="">Choose a program</option>
+              <option value="AI2026A1 - Certificate in Generative AI & Smart Digital Productivity">AI2026A1 – Generative AI & Smart Digital Productivity</option>
+              <option value="AI2026B1 - Professional Certificate in AI Productivity & Digital Transformation">AI2026B1 – AI Productivity & Digital Transformation</option>
+              <option value="AI2026C1 - Executive Certification in Enterprise AI & Intelligent Automation">AI2026C1 – Enterprise AI & Intelligent Automation</option>
+            </select>
+            <div class="err-msg" id="err-program">Please select a program.</div>
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label for="qualification">Highest Qualification <span class="req">*</span></label>
+              <input type="text" id="qualification" name="qualification" placeholder="e.g. B.Com, B.Sc, 12th Pass">
+              <div class="err-msg" id="err-qualification">Please enter your qualification.</div>
+            </div>
+            <div class="field">
+              <label for="category">Category <span class="req">*</span></label>
+              <select id="category" name="category">
+                <option value="">Select category</option>
+                <option value="General">General</option>
+                <option value="OBC">OBC</option>
+                <option value="SC">SC</option>
+                <option value="ST">ST</option>
+                <option value="EWS">EWS</option>
+              </select>
+              <div class="err-msg" id="err-category">Please select your category.</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="institution">Institution / University <span class="req">*</span></label>
+            <input type="text" id="institution" name="institution" placeholder="Name of your current institution">
+            <div class="err-msg" id="err-institution">Please enter your institution name.</div>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn btn-secondary" id="step2Back">
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button type="button" class="btn btn-primary" id="step2Next">
+              Next <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= STEP 3: PAYMENT ================= -->
+        <div class="form-step" data-step="3">
+          <h2>Payment Details</h2>
+          <p class="hint">Pay the course fee using the bank details or QR code below, then upload the payment screenshot.</p>
+
+          <!-- Bank Details Box -->
+          <div class="bank-box">
+            <h3><i class="fas fa-university"></i> Bank Account Details</h3>
+            <table class="bank-table">
+              <tr>
+                <td>Beneficiary Name</td>
+                <td>REGISTRAR, GURU GHASIDAS VISHWAVIDYALAYA</td>
+              </tr>
+              <tr>
+                <td>Account Number</td>
+                <td>947410110000001</td>
+              </tr>
+              <tr>
+                <td>IFSC Code</td>
+                <td>BKID0009474</td>
+              </tr>
+              <tr>
+                <td>Bank Name</td>
+                <td>Bank of India</td>
+              </tr>
+              <tr>
+                <td>PAN Number</td>
+                <td>AAAJG2058G</td>
+              </tr>
+            </table>
+            <div class="bank-note">
+              <i class="fas fa-info-circle"></i>
+              After depositing the amount, the payment confirmation, transaction reference number and other relevant details must be submitted to the University for official record and reconciliation.
+            </div>
+          </div>
+
+          <!-- QR Code Box -->
+          <div class="qr-box">
+            <h4><i class="fas fa-qrcode"></i> Scan &amp; Pay via UPI</h4>
+            <img src="https://i.ibb.co/b5ZHkx2N/image.png" alt="Payment QR Code">
+            <div class="qr-note">Scan this QR with any UPI app to pay the course fee</div>
+          </div>
+
+          <div class="field">
+            <label for="transactionId">Transaction / UTR Reference Number <span class="req">*</span></label>
+            <input type="text" id="transactionId" name="transactionId" placeholder="Enter transaction reference number">
+            <div class="err-msg" id="err-transactionId">Please enter the transaction reference number.</div>
+          </div>
+
+          <div class="field">
+            <label for="paymentScreenshot">Upload Payment Screenshot <span class="req">*</span></label>
+            <div class="upload-box" id="paymentBox">
+              <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*,.pdf">
+              <i class="fas fa-receipt"></i>
+              <div class="up-title">Click or drag to upload payment screenshot</div>
+              <div class="up-sub">JPG, PNG or PDF · Max 5 MB</div>
+              <div class="file-name" id="paymentFileName"></div>
+            </div>
+            <div class="err-msg" id="err-paymentScreenshot">Please upload the payment screenshot.</div>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn btn-secondary" id="step3Back">
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button type="button" class="btn btn-primary" id="step3Next">
+              Next <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= STEP 4: REVIEW & SUBMIT ================= -->
+        <div class="form-step" data-step="4">
+          <h2>Review &amp; Submit</h2>
+          <p class="hint">Please verify all details before submitting your registration.</p>
+
+          <div id="reviewContent" style="background:#fafdff;border:1.5px solid #e0ebf7;border-radius:16px;padding:20px;margin-bottom:10px;"></div>
+
+          <div class="field" style="margin-top:18px;">
+            <label style="display:flex;align-items:flex-start;gap:10px;font-weight:500;font-size:0.85rem;color:#2c405b;cursor:pointer;">
+              <input type="checkbox" id="declaration" style="width:auto;margin-top:3px;">
+              <span>I hereby declare that all the information provided above is true and correct. I agree to abide by the rules and regulations of Guru Ghasidas Vishwavidyalaya. <span class="req" style="color:#e74c3c;">*</span></span>
+            </label>
+            <div class="err-msg" id="err-declaration">You must accept the declaration to proceed.</div>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn btn-secondary" id="step4Back">
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <i class="fas fa-paper-plane"></i> Submit Registration
+            </button>
+          </div>
+        </div>
+
+        <!-- ================= SUCCESS ================= -->
+        <div class="form-step" data-step="5">
+          <div class="success-box">
+            <div class="check"><i class="fas fa-check"></i></div>
+            <h2>Application Submitted!</h2>
+            <p>Thank you for registering for the AI Certificate Program. Your application has been received and is now under verification.</p>
+            <div class="ref" id="refNumber">Ref: GGV-2026-XXXX</div>
+
+            <!-- Verification notice -->
+            <div style="background:#fff8e8;border-left:4px solid #f5b041;padding:14px 18px;border-radius:10px;margin:0 auto 22px;max-width:520px;text-align:left;font-size:0.85rem;color:#7a5a17;line-height:1.65;">
+              <strong>⏳ Verification in progress — 5 to 7 working days.</strong><br>
+              Please <strong>do not worry</strong>. We are verifying your payment details. This usually takes
+              <strong>5–7 working days</strong>. You will receive a confirmation email once verified.
+            </div>
+
+            <p style="font-size:0.85rem;margin-bottom:22px;">A confirmation email has been sent to your registered email address.</p>
+
+            <!-- Contact card -->
+            <div style="background:#f0f7ff;border:1.5px solid #cfe0f5;border-radius:16px;padding:20px 22px;text-align:left;max-width:520px;margin:0 auto 24px;">
+              <p style="margin:0 0 12px;font-size:0.95rem;font-weight:700;color:#0a2f6c;">
+                <i class="fas fa-headset"></i> Need help? Contact us
+              </p>
+              <p style="margin:0 0 12px;font-size:0.83rem;color:#314a66;line-height:1.65;">
+                If you have <strong>already paid</strong> but did not receive any confirmation email or registration
+                confirmation within <strong>5–7 working days</strong>, please contact:
+              </p>
+              <table style="width:100%;border-collapse:collapse;font-size:0.84rem;">
+                <tr><td style="padding:5px 8px 5px 0;color:#3f536c;width:34%;">Name</td><td style="padding:5px 0;font-weight:600;color:#0b1e33;">Prof. Ramgopal Kashyap</td></tr>
+                <tr><td style="padding:5px 8px 5px 0;color:#3f536c;">Designation</td><td style="padding:5px 0;color:#0b1e33;">Professor, Dept. of Information Technology</td></tr>
+                <tr><td style="padding:5px 8px 5px 0;color:#3f536c;">Mobile</td><td style="padding:5px 0;"><a href="tel:9826421549" style="color:#0a2f6c;font-weight:600;text-decoration:none;">9826421549</a></td></tr>
+                <tr><td style="padding:5px 8px 5px 0;color:#3f536c;">Email</td><td style="padding:5px 0;"><a href="mailto:ram1kashyap@gmail.com" style="color:#0a2f6c;text-decoration:none;">ram1kashyap@gmail.com</a></td></tr>
+                <tr><td style="padding:5px 8px 5px 0;color:#3f536c;vertical-align:top;">Address</td><td style="padding:5px 0;color:#0b1e33;">GGV, Koni, Bilaspur, Chhattisgarh, 495009, India</td></tr>
+              </table>
+              <p style="margin:12px 0 0;font-size:0.8rem;color:#4d627c;">
+                <i class="fas fa-phone-alt"></i> You can call or text on the number above if needed.
+              </p>
+            </div>
+
+            <div class="btn-row" style="justify-content:center;">
+              <a href="index.html" class="btn btn-primary" style="text-decoration:none;max-width:240px;">
+                <i class="fas fa-home"></i> Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ⚠️ REPLACE THIS URL WITH YOUR DEPLOYED GOOGLE APPS SCRIPT WEB APP URL
+      const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQyJps_XGVTf8iQrNsZ0KDa3jvaVlhEB1Ers2zA1Ho8f1I7gkNGej5bxfxKySLrGY5/exec';
+
+      // ---------- STATE ----------
+      let currentStep = 1;
+      let isGGVStudent = null;
+      let idCardFile = null;
+      let paymentFile = null;
+      let timerInterval = null;
+      let secondsRemaining = 300; // 5 minutes
+
+      // ---------- ELEMENTS ----------
+      const form = document.getElementById('registrationForm');
+      const steps = document.querySelectorAll('.form-step');
+      const stepIndicators = document.querySelectorAll('.step');
+      const loader = document.getElementById('loaderOverlay');
+      const loaderTitle = document.getElementById('loaderTitle');
+      const loaderText = document.getElementById('loaderText');
+      const timerDisplay = document.getElementById('timerDisplay');
+      const timerWarning = document.getElementById('timerWarning');
+
+      // ---------- HELPERS ----------
+      function goToStep(step) {
+        currentStep = step;
+        steps.forEach(s => s.classList.toggle('active', parseInt(s.dataset.step) === step));
+        stepIndicators.forEach(ind => {
+          const n = parseInt(ind.dataset.step);
+          ind.classList.toggle('active', n === step);
+          ind.classList.toggle('done', n < step);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function showError(fieldId, show) {
+        const err = document.getElementById('err-' + fieldId);
+        const input = document.getElementById(fieldId);
+        if (err) err.classList.toggle('show', show);
+        if (input && input.classList) input.classList.toggle('error', show);
+      }
+
+      function validateEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      }
+
+      function validateMobile(mobile) {
+        return /^[6-9]\d{9}$/.test(mobile);
+      }
+
+      function formatTime(seconds) {
+        const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+        const s = (seconds % 60).toString().padStart(2, '0');
+        return m + ':' + s;
+      }
+
+      function startTimer() {
+        secondsRemaining = 300;
+        timerDisplay.textContent = formatTime(secondsRemaining);
+        timerWarning.style.display = 'none';
+        if (timerInterval) clearInterval(timerInterval);
+        timerInterval = setInterval(() => {
+          secondsRemaining--;
+          if (secondsRemaining < 0) secondsRemaining = 0;
+          timerDisplay.textContent = formatTime(secondsRemaining);
+
+          if (secondsRemaining === 0) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            timerWarning.style.display = 'block';
+            timerWarning.innerHTML = '<strong>⏳ Still processing...</strong> Your upload is taking longer than usual. Please keep this page open — we are still working on your registration.';
+          }
+        }, 1000);
+      }
+
+      function stopTimer() {
+        if (timerInterval) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+        }
+      }
+
+      // ---------- STEP 1 VALIDATION ----------
+      function validateStep1() {
+        let valid = true;
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const mobile = document.getElementById('mobile').value.trim();
+        const dob = document.getElementById('dob').value;
+        const gender = document.getElementById('gender').value;
+        const address = document.getElementById('address').value.trim();
+        const ggvRadio = document.querySelector('input[name="isGGV"]:checked');
+
+        if (!fullName) { showError('fullName', true); valid = false; } else showError('fullName', false);
+        if (!email || !validateEmail(email)) { showError('email', true); valid = false; } else showError('email', false);
+        if (!mobile || !validateMobile(mobile)) { showError('mobile', true); valid = false; } else showError('mobile', false);
+        if (!dob) { showError('dob', true); valid = false; } else showError('dob', false);
+        if (!gender) { showError('gender', true); valid = false; } else showError('gender', false);
+        if (!address) { showError('address', true); valid = false; } else showError('address', false);
+
+        if (!ggvRadio) {
+          document.getElementById('err-isGGV').classList.add('show');
+          valid = false;
+        } else {
+          document.getElementById('err-isGGV').classList.remove('show');
+        }
+
+        if (ggvRadio && ggvRadio.value === 'Yes' && !idCardFile) {
+          document.getElementById('err-idCard').classList.add('show');
+          valid = false;
+        } else if (ggvRadio && ggvRadio.value === 'Yes' && idCardFile) {
+          document.getElementById('err-idCard').classList.remove('show');
+        }
+
+        return valid;
+      }
+
+      function validateStep2() {
+        let valid = true;
+        const program = document.getElementById('program').value;
+        const qualification = document.getElementById('qualification').value.trim();
+        const category = document.getElementById('category').value;
+        const institution = document.getElementById('institution').value.trim();
+
+        if (!program) { showError('program', true); valid = false; } else showError('program', false);
+        if (!qualification) { showError('qualification', true); valid = false; } else showError('qualification', false);
+        if (!category) { showError('category', true); valid = false; } else showError('category', false);
+        if (!institution) { showError('institution', true); valid = false; } else showError('institution', false);
+
+        return valid;
+      }
+
+      function validateStep3() {
+        let valid = true;
+        const transactionId = document.getElementById('transactionId').value.trim();
+
+        if (!transactionId) { showError('transactionId', true); valid = false; } else showError('transactionId', false);
+        if (!paymentFile) {
+          document.getElementById('err-paymentScreenshot').classList.add('show');
+          valid = false;
+        } else {
+          document.getElementById('err-paymentScreenshot').classList.remove('show');
+        }
+
+        return valid;
+      }
+
+      // ---------- BUILD REVIEW ----------
+      function buildReview() {
+        const ggvRadio = document.querySelector('input[name="isGGV"]:checked');
+        const data = {
+          'Full Name': document.getElementById('fullName').value.trim(),
+          'Email': document.getElementById('email').value.trim(),
+          'Mobile': document.getElementById('mobile').value.trim(),
+          'Date of Birth': document.getElementById('dob').value,
+          'Gender': document.getElementById('gender').value,
+          'Address': document.getElementById('address').value.trim(),
+          'GGV Student': ggvRadio ? ggvRadio.value : '—',
+          'ID Card File': idCardFile ? idCardFile.name : 'Not applicable',
+          'Program': document.getElementById('program').value,
+          'Qualification': document.getElementById('qualification').value.trim(),
+          'Category': document.getElementById('category').value,
+          'Institution': document.getElementById('institution').value.trim(),
+          'Transaction ID': document.getElementById('transactionId').value.trim(),
+          'Payment Screenshot': paymentFile ? paymentFile.name : '—'
+        };
+
+        let html = '<table style="width:100%;border-collapse:collapse;font-size:0.85rem;">';
+        for (const [key, value] of Object.entries(data)) {
+          html += `<tr>
+            <td style="padding:8px 6px;font-weight:600;color:#3f536c;border-bottom:1px solid #eaf1f9;width:42%;vertical-align:top;">${key}</td>
+            <td style="padding:8px 6px;color:#0b1e33;border-bottom:1px solid #eaf1f9;word-break:break-word;">${value || '—'}</td>
+          </tr>`;
+        }
+        html += '</table>';
+        document.getElementById('reviewContent').innerHTML = html;
+      }
+
+      // ---------- FILE UPLOAD HANDLERS ----------
+      function setupUpload(boxId, inputId, fileNameId, callback) {
+        const box = document.getElementById(boxId);
+        const input = document.getElementById(inputId);
+        const fileNameEl = document.getElementById(fileNameId);
+
+        input.addEventListener('change', () => {
+          if (input.files && input.files[0]) {
+            const file = input.files[0];
+            if (file.size > 5 * 1024 * 1024) {
+              alert('File size must be under 5 MB.');
+              input.value = '';
+              return;
+            }
+            box.classList.add('has-file');
+            fileNameEl.textContent = '✓ ' + file.name;
+            callback(file);
+          } else {
+            box.classList.remove('has-file');
+            fileNameEl.textContent = '';
+            callback(null);
+          }
+        });
+
+        ['dragenter', 'dragover'].forEach(evt => {
+          box.addEventListener(evt, (e) => { e.preventDefault(); box.classList.add('dragover'); });
+        });
+        ['dragleave', 'drop'].forEach(evt => {
+          box.addEventListener(evt, (e) => { e.preventDefault(); box.classList.remove('dragover'); });
+        });
+        box.addEventListener('drop', (e) => {
+          e.preventDefault();
+          if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            input.files = e.dataTransfer.files;
+            input.dispatchEvent(new Event('change'));
+          }
+        });
+      }
+
+      setupUpload('idCardBox', 'idCard', 'idCardFileName', (file) => { idCardFile = file; });
+      setupUpload('paymentBox', 'paymentScreenshot', 'paymentFileName', (file) => { paymentFile = file; });
+
+      // ---------- GGV RADIO TOGGLE ----------
+      document.querySelectorAll('input[name="isGGV"]').forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          isGGVStudent = e.target.value === 'Yes';
+          const idCardField = document.getElementById('idCardField');
+          idCardField.style.display = isGGVStudent ? 'block' : 'none';
+          if (!isGGVStudent) {
+            idCardFile = null;
+            const idInput = document.getElementById('idCard');
+            idInput.value = '';
+            document.getElementById('idCardBox').classList.remove('has-file');
+            document.getElementById('idCardFileName').textContent = '';
+            document.getElementById('err-idCard').classList.remove('show');
+          }
+        });
+      });
+
+      // ---------- NAVIGATION ----------
+      document.getElementById('step1Next').addEventListener('click', () => {
+        if (validateStep1()) goToStep(2);
+      });
+
+      document.getElementById('step2Back').addEventListener('click', () => goToStep(1));
+      document.getElementById('step2Next').addEventListener('click', () => {
+        if (validateStep2()) goToStep(3);
+      });
+
+      document.getElementById('step3Back').addEventListener('click', () => goToStep(2));
+      document.getElementById('step3Next').addEventListener('click', () => {
+        if (validateStep3()) {
+          buildReview();
+          goToStep(4);
+        }
+      });
+
+      document.getElementById('step4Back').addEventListener('click', () => goToStep(3));
+
+      // ---------- FILE → BASE64 ----------
+      function fileToBase64(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const base64 = reader.result.split(',')[1];
+            resolve({
+              name: file.name,
+              mimeType: file.type || 'application/octet-stream',
+              data: base64
+            });
+          };
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+      }
+
+      // ---------- SUBMIT ----------
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const declaration = document.getElementById('declaration');
+        if (!declaration.checked) {
+          document.getElementById('err-declaration').classList.add('show');
+          return;
+        } else {
+          document.getElementById('err-declaration').classList.remove('show');
+        }
+
+        if (!validateStep1()) { goToStep(1); return; }
+        if (!validateStep2()) { goToStep(2); return; }
+        if (!validateStep3()) { goToStep(3); return; }
+
+        // Show loader + start 5-min countdown
+        loader.classList.add('show');
+        loaderTitle.textContent = 'Submitting your registration...';
+        loaderText.textContent = 'Please wait while we upload your files and register your application.';
+        startTimer();
+
+        try {
+          const ggvRadio = document.querySelector('input[name="isGGV"]:checked');
+
+          const payload = {
+            fullName: document.getElementById('fullName').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            mobile: document.getElementById('mobile').value.trim(),
+            dob: document.getElementById('dob').value,
+            gender: document.getElementById('gender').value,
+            address: document.getElementById('address').value.trim(),
+            isGGV: ggvRadio ? ggvRadio.value : 'No',
+            program: document.getElementById('program').value,
+            qualification: document.getElementById('qualification').value.trim(),
+            category: document.getElementById('category').value,
+            institution: document.getElementById('institution').value.trim(),
+            transactionId: document.getElementById('transactionId').value.trim(),
+            timestamp: new Date().toISOString()
+          };
+
+          if (idCardFile) {
+            loaderText.textContent = 'Uploading ID card...';
+            payload.idCard = await fileToBase64(idCardFile);
+          }
+
+          if (paymentFile) {
+            loaderText.textContent = 'Uploading payment screenshot...';
+            payload.paymentScreenshot = await fileToBase64(paymentFile);
+          }
+
+          loaderText.textContent = 'Sending data to server...';
+
+          // Send to Apps Script using form-encoded POST (no CORS preflight)
+          const params = new URLSearchParams();
+          params.append('payload', JSON.stringify(payload));
+
+          const response = await fetch(APPS_SCRIPT_URL, {
+            method: 'POST',
+            body: params
+          });
+
+          // ✅ Try to read JSON response (works if Apps Script returns CORS-compatible output)
+          let result = null;
+          try {
+            result = await response.json();
+            console.log('Server response:', result);
+          } catch (jsonErr) {
+            console.warn('Could not parse JSON response (likely opaque). Assuming success.');
+          }
+
+          // Stop the timer
+          stopTimer();
+
+          // If server explicitly returned an error, show it
+          if (result && result.status === 'error') {
+            throw new Error(result.message || 'Server returned an error.');
+          }
+
+          // ✅ Show success immediately (do NOT wait for timer)
+          const refNum = 'GGV-2026-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+          document.getElementById('refNumber').textContent = 'Ref: ' + refNum;
+
+          loader.classList.remove('show');
+          goToStep(5);
+
+        } catch (err) {
+          console.error('Submission error:', err);
+          stopTimer();
+          loader.classList.remove('show');
+          alert('There was an error submitting your registration. Please check your internet connection and try again.\n\nError: ' + err.message);
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>
