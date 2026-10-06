@@ -324,6 +324,67 @@
 
     .upload-box.has-file .file-name { display: block; }
 
+    /* ---------- AMOUNT TO PAY BOX ---------- */
+    .amount-box {
+      background: linear-gradient(135deg, #0a2f6c, #1e4b8a);
+      border-radius: 20px;
+      padding: 22px 24px;
+      margin-bottom: 22px;
+      color: white;
+      text-align: center;
+      box-shadow: 0 10px 24px -8px rgba(10, 47, 108, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .amount-box::after {
+      content: '';
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 120px;
+      height: 120px;
+      background: rgba(245, 176, 65, 0.15);
+      border-radius: 50%;
+    }
+
+    .amount-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #c8dcf7;
+      margin-bottom: 6px;
+    }
+
+    .amount-value {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      color: #ffffff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .amount-meta {
+      font-size: 0.82rem;
+      color: #d6e3f7;
+      font-weight: 500;
+    }
+
+    .amount-meta .tag {
+      display: inline-block;
+      background: rgba(245, 176, 65, 0.22);
+      color: #ffd98a;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      margin-left: 6px;
+    }
+
     /* ---------- BANK DETAILS BOX ---------- */
     .bank-box {
       background: #f0f7ff;
@@ -594,6 +655,8 @@
       .bank-table td:first-child { width: 48%; font-size: 0.8rem; }
       .bank-table td:last-child { font-size: 0.8rem; }
       .timer-badge { font-size: 1rem; padding: 10px 20px; }
+      .amount-value { font-size: 2rem; }
+      .amount-box { padding: 18px 18px; }
     }
   </style>
 </head>
@@ -794,6 +857,13 @@
           <h2>Payment Details</h2>
           <p class="hint">Pay the course fee using the bank details or QR code below, then upload the payment screenshot.</p>
 
+          <!-- 💰 AMOUNT TO PAY BOX -->
+          <div class="amount-box" id="amountBox">
+            <div class="amount-label">Amount to Pay</div>
+            <div class="amount-value" id="amountValue">₹0</div>
+            <div class="amount-meta" id="amountMeta">Select a program to see the fee</div>
+          </div>
+
           <!-- Bank Details Box -->
           <div class="bank-box">
             <h3><i class="fas fa-university"></i> Bank Account Details</h3>
@@ -893,7 +963,6 @@
             <p>Thank you for registering for the AI Certificate Program. Your application has been received and is now under verification.</p>
             <div class="ref" id="refNumber">Ref: GGV-2026-XXXX</div>
 
-            <!-- Verification notice -->
             <div style="background:#fff8e8;border-left:4px solid #f5b041;padding:14px 18px;border-radius:10px;margin:0 auto 22px;max-width:520px;text-align:left;font-size:0.85rem;color:#7a5a17;line-height:1.65;">
               <strong>⏳ Verification in progress — 5 to 7 working days.</strong><br>
               Please <strong>do not worry</strong>. We are verifying your payment details. This usually takes
@@ -902,7 +971,6 @@
 
             <p style="font-size:0.85rem;margin-bottom:22px;">A confirmation email has been sent to your registered email address.</p>
 
-            <!-- Contact card -->
             <div style="background:#f0f7ff;border:1.5px solid #cfe0f5;border-radius:16px;padding:20px 22px;text-align:left;max-width:520px;margin:0 auto 24px;">
               <p style="margin:0 0 12px;font-size:0.95rem;font-weight:700;color:#0a2f6c;">
                 <i class="fas fa-headset"></i> Need help? Contact us
@@ -962,7 +1030,7 @@
       const timerWarning = document.getElementById('timerWarning');
 
       // ---------- HELPERS ----------
-      function goToStep(step) {
+      let goToStep = function(step) {
         currentStep = step;
         steps.forEach(s => s.classList.toggle('active', parseInt(s.dataset.step) === step));
         stepIndicators.forEach(ind => {
@@ -971,7 +1039,8 @@
           ind.classList.toggle('done', n < step);
         });
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+        if (step === 3) updateAmountToPay();
+      };
 
       function showError(fieldId, show) {
         const err = document.getElementById('err-' + fieldId);
@@ -1158,6 +1227,47 @@
       setupUpload('idCardBox', 'idCard', 'idCardFileName', (file) => { idCardFile = file; });
       setupUpload('paymentBox', 'paymentScreenshot', 'paymentFileName', (file) => { paymentFile = file; });
 
+      // ---------- AMOUNT TO PAY CALCULATOR ----------
+      // Fee structure:
+      //   GGV students     → ₹3,500 for all programs
+      //   External         → ₹9,000 for all programs
+      const FEE_MAP = {
+        'AI2026A1': { ggv: 3500, external: 9000 },
+        'AI2026B1': { ggv: 3500, external: 9000 },
+        'AI2026C1': { ggv: 3500, external: 9000 }
+      };
+
+      function updateAmountToPay() {
+        const programValue = document.getElementById('program').value;
+        const ggvRadio = document.querySelector('input[name="isGGV"]:checked');
+        const isGGV = ggvRadio && ggvRadio.value === 'Yes';
+
+        const amountValueEl = document.getElementById('amountValue');
+        const amountMetaEl  = document.getElementById('amountMeta');
+
+        if (!programValue || !ggvRadio) {
+          amountValueEl.textContent = '₹0';
+          amountMetaEl.innerHTML = 'Please complete previous steps to see the fee.';
+          return;
+        }
+
+        const codeMatch = programValue.match(/AI\d{4}[A-Z]\d/);
+        const code = codeMatch ? codeMatch[0] : null;
+        const fee = code && FEE_MAP[code] ? FEE_MAP[code] : { ggv: 3500, external: 9000 };
+
+        const amount = isGGV ? fee.ggv : fee.external;
+        const category = isGGV ? 'GGV Student' : 'External Participant';
+
+        amountValueEl.textContent = '₹' + amount.toLocaleString('en-IN');
+        amountMetaEl.innerHTML = category + ' · ' + (code || 'Program') +
+          ' <span class="tag">' + (isGGV ? 'GGU RATE' : 'EXTERNAL RATE') + '</span>';
+      }
+
+      document.getElementById('program').addEventListener('change', updateAmountToPay);
+      document.querySelectorAll('input[name="isGGV"]').forEach(r => {
+        r.addEventListener('change', updateAmountToPay);
+      });
+
       // ---------- GGV RADIO TOGGLE ----------
       document.querySelectorAll('input[name="isGGV"]').forEach(radio => {
         radio.addEventListener('change', (e) => {
@@ -1228,7 +1338,6 @@
         if (!validateStep2()) { goToStep(2); return; }
         if (!validateStep3()) { goToStep(3); return; }
 
-        // Show loader + start 5-min countdown
         loader.classList.add('show');
         loaderTitle.textContent = 'Submitting your registration...';
         loaderText.textContent = 'Please wait while we upload your files and register your application.';
@@ -1265,7 +1374,6 @@
 
           loaderText.textContent = 'Sending data to server...';
 
-          // Send to Apps Script using form-encoded POST (no CORS preflight)
           const params = new URLSearchParams();
           params.append('payload', JSON.stringify(payload));
 
@@ -1274,7 +1382,6 @@
             body: params
           });
 
-          // ✅ Try to read JSON response (works if Apps Script returns CORS-compatible output)
           let result = null;
           try {
             result = await response.json();
@@ -1283,15 +1390,12 @@
             console.warn('Could not parse JSON response (likely opaque). Assuming success.');
           }
 
-          // Stop the timer
           stopTimer();
 
-          // If server explicitly returned an error, show it
           if (result && result.status === 'error') {
             throw new Error(result.message || 'Server returned an error.');
           }
 
-          // ✅ Show success immediately (do NOT wait for timer)
           const refNum = 'GGV-2026-' + Math.random().toString(36).substring(2, 8).toUpperCase();
           document.getElementById('refNumber').textContent = 'Ref: ' + refNum;
 
