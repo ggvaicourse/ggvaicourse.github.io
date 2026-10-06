@@ -39,6 +39,7 @@
       color: #0b1e33;
       line-height: 1.6;
       overflow-x: hidden;
+      padding-bottom: 0;
     }
 
     :root {
@@ -69,7 +70,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 8px;
     }
 
@@ -77,6 +78,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-shrink: 0;
     }
 
     .logo-area img {
@@ -105,6 +107,8 @@
       font-weight: 500;
       color: #1f3a5f;
       flex-wrap: wrap;
+      margin-left: auto;
+      margin-right: 16px;
     }
 
     .nav-links a {
@@ -112,26 +116,29 @@
       color: inherit;
       font-size: 0.8rem;
       transition: color 0.2s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
       color: var(--ggu-gold);
     }
 
+    /* Apply button in navbar (inline on desktop) */
     .btn-apply {
       border: none;
       background: var(--ggu-blue);
-      padding: 6px 18px;
+      padding: 8px 22px;
       border-radius: 40px;
       font-weight: 600;
       color: white;
       transition: all 0.2s;
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       cursor: pointer;
       white-space: nowrap;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
+      flex-shrink: 0;
     }
 
     .btn-apply:hover {
@@ -139,7 +146,35 @@
       transform: scale(1.02);
     }
 
-    /* ========== HERO CAROUSEL (full image, no cropping) ========== */
+    /* Floating Apply button (mobile only) */
+    .btn-apply-floating {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1500;
+      background: var(--ggu-blue);
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 30px rgba(10, 47, 108, 0.35);
+      cursor: pointer;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-apply-floating:hover {
+      background: #0d3d8a;
+      transform: translateX(-50%) scale(1.03);
+    }
+
+    /* ========== HERO CAROUSEL ========== */
     .hero-carousel {
       position: relative;
       overflow: hidden;
@@ -529,7 +564,7 @@
       border-radius: 20px;
     }
 
-    /* ========== LEADERSHIP ========== */
+    /* ========== LEADERSHIP (VC MESSAGE) ========== */
     .leadership-section {
       padding: 50px 0;
       background: white;
@@ -947,10 +982,8 @@
         gap: 24px;
       }
       .nav-links { display: none; }
-      .logo-text h1 { font-size: 0.85rem; }
-      .logo-text span { font-size: 0.55rem; }
-      .logo-area img { height: 34px; }
-      .btn-apply { padding: 4px 14px; font-size: 0.7rem; }
+      .navbar .container { flex-wrap: nowrap; }
+      .btn-apply { padding: 6px 16px; font-size: 0.75rem; }
       .hero-carousel-btn { width: 34px; height: 34px; font-size: 0.8rem; }
       .hero-carousel-btn.prev { left: 6px; }
       .hero-carousel-btn.next { right: 6px; }
@@ -961,6 +994,17 @@
       .carousel-btn { width: 34px; height: 34px; font-size: 0.8rem; }
       .carousel-btn.prev { left: 6px; }
       .carousel-btn.next { right: 6px; }
+    }
+
+    @media (max-width: 600px) {
+      /* Hide the inline navbar Apply button on small screens */
+      .btn-apply { display: none; }
+      /* Show floating Apply button on small screens */
+      .btn-apply-floating { display: inline-flex; }
+      body { padding-bottom: 80px; }
+      .logo-text h1 { font-size: 0.8rem; }
+      .logo-text span { font-size: 0.5rem; }
+      .logo-area img { height: 32px; }
     }
 
     @media (max-width: 480px) {
@@ -998,13 +1042,19 @@
         <a href="#sop">SOP</a>
         <a href="#contact">Contact</a>
       </div>
+      <!-- Inline Apply button (desktop) -->
       <button class="btn-apply" onclick="window.open('regester.html', '_blank')">
         <i class="fas fa-graduation-cap"></i> Apply Now
       </button>
     </div>
   </nav>
 
-  <!-- ========== HERO CAROUSEL (full image, no cropping) ========== -->
+  <!-- Floating Apply button (mobile only) -->
+  <button class="btn-apply-floating" onclick="window.open('regester.html', '_blank')">
+    <i class="fas fa-graduation-cap"></i> Apply Now
+  </button>
+
+  <!-- ========== HERO CAROUSEL ========== -->
   <section class="hero-carousel" id="heroCarousel">
     <div class="hero-track" id="heroTrack">
       <div class="hero-slide">
@@ -1202,21 +1252,23 @@
     </div>
   </section>
 
-  <!-- ========== MESSAGE FROM LEADERSHIP ========== -->
+  <!-- ========== MESSAGE FROM LEADERSHIP (VC) ========== -->
   <section class="leadership-section">
     <div class="container">
       <h2 class="section-title">Message from Leadership</h2>
       <div class="leadership-grid">
         <div class="leadership-text">
-          <h3>Chairperson (E-Learning Committee)</h3>
-          <p>We are making concerted efforts in infusing a high level of management competence in a dynamic, yet resource constrained environment. Preparing the future executives capable of harnessing the maximum out of limited resources through innovative, entrepreneurial zeal and efficient management of technology and trade is crucial to our economic growth and development.</p>
-          <p>We have a simple mission to nurture excellence and promote leaders capable of managing resources in a globalized environment, with social responsibilities. At IIM Raipur, we strive to achieve excellence in every endeavour – creation of knowledge, imparting the knowledge and augmenting the practice through executive learning and development.</p>
-          <p>To meet the needs of working professionals, who would like to pursue quality management education without hampering their professional and personal commitments.</p>
+          <h3>Vice-Chancellor's Message</h3>
+          <p>It gives me immense pleasure to welcome you to the AI Certificate Programs at Guru Ghasidas Vishwavidyalaya. In today's rapidly evolving digital landscape, Artificial Intelligence is not just a technological advancement—it is a transformative force reshaping every sector of our economy and society.</p>
+          <p>At GGV, we are committed to democratizing AI education and making it accessible to students from all disciplines. Our certificate programs are designed to equip learners with practical AI skills, ethical awareness, and the confidence to leverage intelligent tools for productivity, innovation, and career growth.</p>
+          <p>Whether you are a student, a working professional, or an entrepreneur, these programs will empower you to harness the power of AI responsibly and effectively. I encourage you to embark on this journey of discovery and become a part of India's AI-ready workforce.</p>
+          <p style="margin-top: 12px; font-weight: 600; color: #0a2f6c;">— Prof. Alok Kumar Chakrawal<br><span style="font-weight: 400; font-size: 0.9rem; color: #4d627c;">Vice-Chancellor, Guru Ghasidas Vishwavidyalaya</span></p>
         </div>
         <div class="leadership-card">
-          <img src="https://via.placeholder.com/200x200/e0ebf7/0a2f6c?text=Profile" alt="Prof. Ritu Gupta">
-          <h4>Prof. Ritu Gupta</h4>
-          <p>Chairperson, E-Learning Committee</p>
+          <img src="https://static.toiimg.com/thumb/msid-98022404,imgsize-25096,width-400,resizemode-4/98022404.jpg" alt="Prof. Alok Kumar Chakrawal">
+          <h4>Prof. Alok Kumar Chakrawal</h4>
+          <p>Vice-Chancellor</p>
+          <p style="font-size: 0.8rem; margin-top: 4px;">Guru Ghasidas Vishwavidyalaya</p>
         </div>
       </div>
     </div>
@@ -1289,7 +1341,7 @@
     </div>
   </section>
 
-  <!-- ========== FOOTER (with logo + updated quick links) ========== -->
+  <!-- ========== FOOTER ========== -->
   <footer id="contact">
     <div class="container">
       <div class="footer-grid">
@@ -1305,7 +1357,7 @@
           <p><i class="fas fa-phone-alt"></i> +91 07752-260209</p>
         </div>
 
-        <!-- Column 2: Quick links (Contact Us, Privacy Policy) -->
+        <!-- Column 2: Quick links -->
         <div class="footer-col">
           <h4>Quick links</h4>
           <a href="#programs">AI2026A1</a>
@@ -1355,7 +1407,7 @@
   <!-- ========== JAVASCRIPT ========== -->
   <script>
     (function() {
-      // ---------- HERO CAROUSEL (full image, no cropping) ----------
+      // ---------- HERO CAROUSEL ----------
       const heroTrack = document.getElementById('heroTrack');
       const heroSlides = Array.from(heroTrack.children);
       const heroPrevBtn = document.getElementById('heroPrevBtn');
@@ -1520,18 +1572,16 @@
         }
       });
 
-      // Download brochure button – opens/downloads brouser.pdf
+      // Download brochure button
       downloadBtn.addEventListener('click', () => {
         const email = document.getElementById('popupEmail').value.trim();
         const mobile = document.getElementById('popupMobile').value.trim();
 
-        // Simple validation
         if (!email || !mobile) {
           alert('Please enter your email and mobile number to download the brochure.');
           return;
         }
 
-        // Trigger download of brouser.pdf
         const link = document.createElement('a');
         link.href = 'brouser.pdf';
         link.download = 'brouser.pdf';
