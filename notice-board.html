@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notice Board | AI Certificate Programs - GGV</title>
+  <meta name="description" content="Notice board and downloadable documents for AI Certificate Programs at Guru Ghasidas Vishwavidyalaya.">
+  <link rel="icon" type="image/png" href="https://thumb.wikimedia.org/wikipedia/en/thumb/3/3a/Guru_Ghasidas_University_Insignia.svg/500px-Guru_Ghasidas_University_Insignia.svg.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f5fc;
+      color: #0b1e33;
+      line-height: 1.6;
+      padding: 24px 0 60px;
+    }
+    :root {
+      --ggu-blue: #0a2f6c;
+      --ggu-gold: #f5b041;
+      --card-shadow: 0 10px 30px -5px rgba(10, 47, 108, 0.1);
+    }
+    .container { max-width: 760px; margin: 0 auto; padding: 0 18px; }
+    .navbar {
+      background: white; border-radius: 22px; padding: 16px 26px;
+      box-shadow: var(--card-shadow); display: flex; align-items: center;
+      justify-content: space-between; gap: 16px; margin-bottom: 22px; flex-wrap: wrap;
+    }
+    .navbar-logo { display: flex; align-items: center; gap: 12px; }
+    .navbar-logo img { height: 48px; }
+    .navbar-logo h1 { font-size: 1rem; font-weight: 700; color: var(--ggu-blue); line-height: 1.2; }
+    .navbar-logo span { font-size: 0.7rem; color: #4d627c; }
+    .nav-links { display: flex; gap: 18px; font-size: 0.82rem; font-weight: 500; }
+    .nav-links a { text-decoration: none; color: #1f3a5f; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--ggu-gold); }
+    .nav-links a.active { color: var(--ggu-blue); font-weight: 700; }
+
+    .notice-header {
+      background: linear-gradient(135deg, #0a2f6c, #1e4b8a);
+      border-radius: 22px; padding: 28px 30px; color: white;
+      box-shadow: var(--card-shadow); margin-bottom: 22px;
+      position: relative; overflow: hidden;
+    }
+    .notice-header::after {
+      content: ''; position: absolute; top: -40px; right: -40px;
+      width: 160px; height: 160px; background: rgba(245,176,65,0.15);
+      border-radius: 50%;
+    }
+    .notice-header h1 {
+      font-size: 1.5rem; font-weight: 700; margin-bottom: 6px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .notice-header p { font-size: 0.88rem; color: #d6e3f7; }
+
+    .drive-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.15); color: white;
+      padding: 8px 18px; border-radius: 40px;
+      font-size: 0.82rem; font-weight: 600; margin-top: 14px;
+      text-decoration: none; transition: background 0.2s;
+      border: 1.5px solid rgba(255,255,255,0.25);
+    }
+    .drive-link:hover { background: rgba(255,255,255,0.25); }
+
+    .filter-bar {
+      background: white; border-radius: 18px; padding: 14px 20px;
+      box-shadow: var(--card-shadow); margin-bottom: 22px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .filter-bar .search {
+      flex: 1; min-width: 200px; position: relative;
+    }
+    .filter-bar .search input {
+      width: 100%; padding: 10px 14px 10px 40px;
+      border: 1.5px solid #dce6f2; border-radius: 12px;
+      font-size: 0.85rem; font-family: 'Inter', sans-serif;
+      background: #fafdff; outline: none; transition: border 0.2s;
+      color: #0b1e33;
+    }
+    .filter-bar .search input:focus {
+      border-color: var(--ggu-blue); background: white;
+    }
+    .filter-bar .search i {
+      position: absolute; left: 14px; top: 50%;
+      transform: translateY(-50%); color: #8ba3bf; font-size: 0.85rem;
+    }
+    .filter-bar .count {
+      font-size: 0.8rem; color: #4d627c; font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .file-list { display: flex; flex-direction: column; gap: 12px; }
+
+    .file-card {
+      background: white; border-radius: 18px; padding: 18px 20px;
+      box-shadow: var(--card-shadow); display: flex; align-items: center;
+      gap: 16px; transition: all 0.2s; border: 1.5px solid transparent;
+    }
+    .file-card:hover {
+      border-color: #c2d6ed; transform: translateY(-2px);
+      box-shadow: 0 16px 32px -8px rgba(10,47,108,0.18);
+    }
+
+    .file-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0; color: white;
+    }
+    .file-icon.img { background: linear-gradient(135deg, #667eea, #764ba2); }
+    .file-icon.pdf { background: linear-gradient(135deg, #eb3349, #f45c43); }
+    .file-icon.doc { background: linear-gradient(135deg, #2193b0, #6dd5ed); }
+    .file-icon.sheet { background: linear-gradient(135deg, #11998e, #38ef7d); }
+    .file-icon.other { background: linear-gradient(135deg, #6b8099, #94a9c4); }
+
+    .file-info { flex: 1; min-width: 0; }
+    .file-info .name {
+      font-size: 0.92rem; font-weight: 600; color: #0a1c36;
+      margin-bottom: 4px; word-break: break-word;
+    }
+    .file-info .meta {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 0.75rem; color: #7d93ae; flex-wrap: wrap;
+    }
+    .file-info .meta span { display: inline-flex; align-items: center; gap: 4px; }
+    .file-info .meta i { font-size: 0.7rem; }
+
+    .file-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .file-actions a {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: #eaf2ff; color: var(--ggu-blue);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: all 0.2s; font-size: 0.9rem;
+    }
+    .file-actions a:hover { background: var(--ggu-blue); color: white; }
+
+    .loading-state, .empty-state, .error-state {
+      background: white; border-radius: 18px; padding: 50px 24px;
+      text-align: center; box-shadow: var(--card-shadow);
+    }
+    .loading-state .spinner-small {
+      width: 42px; height: 42px; border: 4px solid #dbe6f3;
+      border-top-color: var(--ggu-blue); border-radius: 50%;
+      animation: spin 0.8s linear infinite; margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-state p, .empty-state p, .error-state p {
+      color: #6b8099; font-size: 0.9rem;
+    }
+    .empty-state i, .error-state i {
+      font-size: 2.5rem; color: #b9cfe6; margin-bottom: 14px; display: block;
+    }
+    .error-state i { color: #e74c3c; }
+    .error-state .retry-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--ggu-blue); color: white; border: none;
+      padding: 10px 22px; border-radius: 40px; font-weight: 600;
+      font-size: 0.85rem; cursor: pointer; margin-top: 16px;
+      font-family: 'Inter', sans-serif; transition: background 0.2s;
+    }
+    .error-state .retry-btn:hover { background: #0d3d8a; }
+
+    .footer {
+      text-align: center; font-size: 0.75rem; color: #8ba3bf;
+      margin-top: 30px; padding: 0 20px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar { padding: 14px 18px; }
+      .navbar-logo h1 { font-size: 0.9rem; }
+      .navbar-logo img { height: 40px; }
+      .nav-links { gap: 12px; font-size: 0.75rem; }
+      .notice-header { padding: 22px 20px; }
+      .notice-header h1 { font-size: 1.2rem; }
+      .file-card { padding: 14px 14px; gap: 12px; }
+      .file-icon { width: 44px; height: 44px; font-size: 1.15rem; }
+      .file-info .name { font-size: 0.85rem; }
+      .file-actions a { width: 36px; height: 36px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="navbar">
+      <div class="navbar-logo">
+        <img src="https://thumb.wikimedia.org/wikipedia/en/thumb/3/3a/Guru_Ghasidas_University_Insignia.svg/500px-Guru_Ghasidas_University_Insignia.svg.png" alt="GGU Logo">
+        <div>
+          <h1>AI Certificate Programs</h1>
+          <span>Guru Ghasidas Vishwavidyalaya</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="notice-board.html" class="active">Notice</a>
+        <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+
+    <div class="notice-header">
+      <h1><i class="fas fa-bullhorn"></i> Notice Board</h1>
+      <p>All official notices, circulars, and downloadable documents for AI Certificate Programs.</p>
+      <a class="drive-link"
+         href="https://drive.google.com/drive/folders/1EfxRMHawc3h76-loUk9ea9ilwoQuhklO"
+         target="_blank" rel="noopener">
+        <i class="fab fa-google-drive"></i> Open in Google Drive
+      </a>
+    </div>
+
+    <div class="filter-bar">
+      <div class="search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Search files by name...">
+      </div>
+      <div class="count" id="fileCount">Loading...</div>
+    </div>
+
+    <div class="file-list" id="fileList">
+      <div class="loading-state">
+        <div class="spinner-small"></div>
+        <p>Loading files from Google Drive...</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 Guru Ghasidas Vishwavidyalaya. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    // ⚠️ REPLACE THIS URL WITH YOUR DEPLOYED APPS SCRIPT NOTICE API URL
+    // (see the setup instructions below)
+    const NOTICE_API_URL = 'https://script.google.com/macros/s/AKfycbzeiePfCGBVXFpKvxigwatMwPHSbhKZ-7i1bWbs67oqwLUp8F6RmYSqzTj6W6Q-Pdu1kA/exec';
+
+    const FOLDER_ID = '1EfxRMHawc3h76-loUk9ea9ilwoQuhklO';
+
+    const fileListEl = document.getElementById('fileList');
+    const fileCountEl = document.getElementById('fileCount');
+    const searchInput = document.getElementById('searchInput');
+
+    let allFiles = [];
+
+    function getFileTypeInfo(name, mimeType) {
+      const ext = (name.split('.').pop() || '').toLowerCase();
+      const mime = (mimeType || '').toLowerCase();
+
+      if (mime.includes('image') || ['png','jpg','jpeg','gif','webp','svg'].includes(ext)) {
+        return { cls: 'img', icon: 'fa-image', label: 'Image' };
+      }
+      if (mime.includes('pdf') || ext === 'pdf') {
+        return { cls: 'pdf', icon: 'fa-file-pdf', label: 'PDF' };
+      }
+      if (mime.includes('word') || ['doc','docx'].includes(ext)) {
+        return { cls: 'doc', icon: 'fa-file-word', label: 'Document' };
+      }
+      if (mime.includes('sheet') || ['xls','xlsx','csv'].includes(ext)) {
+        return { cls: 'sheet', icon: 'fa-file-excel', label: 'Spreadsheet' };
+      }
+      return { cls: 'other', icon: 'fa-file', label: 'File' };
+    }
+
+    function formatSize(bytes) {
+      if (!bytes || bytes === 0) return '—';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+
+    function formatDate(iso) {
+      if (!iso) return '—';
+      const d = new Date(iso);
+      if (isNaN(d)) return '—';
+      const day = String(d.getDate()).padStart(2, '0');
+      const month = String(d.getMonth() + 1).padStart(2, '0');
+      const year = d.getFullYear();
+      return `${day}/${month}/${year}`;
+    }
+
+    function renderFiles(files) {
+      if (!files.length) {
+        fileListEl.innerHTML = `
+          <div class="empty-state">
+            <i class="fas fa-folder-open"></i>
+            <p>No files found in the notice board.</p>
+          </div>`;
+        fileCountEl.textContent = '0 files';
+        return;
+      }
+
+      fileCountEl.textContent = files.length + ' file' + (files.length > 1 ? 's' : '');
+
+      fileListEl.innerHTML = files.map(f => {
+        const t = getFileTypeInfo(f.name, f.mimeType);
+        const viewUrl = `https://drive.google.com/file/d/${f.id}/view`;
+        const downloadUrl = `https://drive.google.com/uc?export=download&id=${f.id}`;
+        return `
+          <div class="file-card">
+            <div class="file-icon ${t.cls}">
+              <i class="fas ${t.icon}"></i>
+            </div>
+            <div class="file-info">
+              <div class="name">${f.name}</div>
+              <div class="meta">
+                <span><i class="fas fa-tag"></i> ${t.label}</span>
+                <span><i class="fas fa-hdd"></i> ${formatSize(f.size)}</span>
+                <span><i class="fas fa-calendar"></i> ${formatDate(f.modifiedTime)}</span>
+              </div>
+            </div>
+            <div class="file-actions">
+              <a href="${viewUrl}" target="_blank" rel="noopener" title="View">
+                <i class="fas fa-eye"></i>
+              </a>
+              <a href="${downloadUrl}" target="_blank" rel="noopener" title="Download">
+                <i class="fas fa-download"></i>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterFiles(query) {
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        renderFiles(allFiles);
+        return;
+      }
+      const filtered = allFiles.filter(f => f.name.toLowerCase().includes(q));
+      renderFiles(filtered);
+    }
+
+    async function loadFiles() {
+      fileListEl.innerHTML = `
+        <div class="loading-state">
+          <div class="spinner-small"></div>
+          <p>Loading files from Google Drive...</p>
+        </div>`;
+      fileCountEl.textContent = 'Loading...';
+
+      try {
+        const url = NOTICE_API_URL + '?folderId=' + encodeURIComponent(FOLDER_ID);
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (!data || data.status !== 'success') {
+          throw new Error((data && data.message) || 'Failed to load files.');
+        }
+
+        allFiles = data.files || [];
+        renderFiles(allFiles);
+
+      } catch (err) {
+        console.error('Load error:', err);
+        fileListEl.innerHTML = `
+          <div class="error-state">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Could not load files from Google Drive.</p>
+            <p style="font-size:0.78rem;margin-top:6px;">${err.message}</p>
+            <button class="retry-btn" onclick="loadFiles()">
+              <i class="fas fa-sync-alt"></i> Retry
+            </button>
+          </div>`;
+        fileCountEl.textContent = 'Error';
+      }
+    }
+
+    searchInput.addEventListener('input', (e) => filterFiles(e.target.value));
+
+    loadFiles();
+
+    // Refresh every 5 minutes
+    setInterval(loadFiles, 5 * 60 * 1000);
+  </script>
+</body>
+</html>
