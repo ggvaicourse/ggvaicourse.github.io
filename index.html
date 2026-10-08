@@ -232,6 +232,90 @@
       max-width: 700px; margin-bottom: 32px;
     }
 
+    /* ========== REGISTRAR MESSAGE ========== */
+    .registrar-section {
+      padding: 50px 0;
+      background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+    }
+    .registrar-grid {
+      display: grid;
+      grid-template-columns: 0.4fr 0.6fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .registrar-photo { text-align: center; }
+    .registrar-photo img {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px -10px rgba(10, 47, 108, 0.25);
+      border: 5px solid white;
+    }
+    .registrar-photo .registrar-caption { margin-top: 16px; }
+    .registrar-photo .registrar-caption h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0a1c36;
+      margin-bottom: 4px;
+    }
+    .registrar-photo .registrar-caption p {
+      font-size: 0.85rem;
+      color: #4d627c;
+      font-weight: 500;
+    }
+    .registrar-text {
+      background: white;
+      border-radius: 24px;
+      padding: 32px 30px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #e0ebf7;
+      position: relative;
+    }
+    .registrar-text::before {
+      content: '\201C';
+      position: absolute;
+      top: -10px;
+      left: 22px;
+      font-size: 5rem;
+      color: #e3ecfa;
+      font-family: Georgia, serif;
+      line-height: 1;
+      z-index: 0;
+    }
+    .registrar-text h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ggu-blue);
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .registrar-text p {
+      font-size: 0.95rem;
+      color: #314a66;
+      margin-bottom: 14px;
+      line-height: 1.75;
+      position: relative;
+      z-index: 1;
+    }
+    .registrar-text .signature {
+      margin-top: 20px;
+      font-weight: 700;
+      color: #0a2f6c;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+    .registrar-text .signature span {
+      display: block;
+      font-weight: 400;
+      font-size: 0.82rem;
+      color: #4d627c;
+      margin-top: 4px;
+    }
+
     /* ========== PROGRAM CARDS ========== */
     .programs-section { padding: 50px 0; background: white; }
     .program-grid {
@@ -716,6 +800,8 @@
     /* ========== RESPONSIVE ========== */
     @media (max-width: 900px) {
       .leadership-grid { grid-template-columns: 1fr; gap: 24px; }
+      .registrar-grid { grid-template-columns: 1fr; gap: 24px; }
+      .registrar-photo img { max-width: 220px; }
       .nav-links { display: none; }
       .navbar .container { flex-wrap: nowrap; }
       .btn-apply { padding: 6px 16px; font-size: 0.75rem; }
@@ -757,6 +843,8 @@
       .footer-logo img { height: 40px; }
       .syllabus-tab { padding: 8px 16px; font-size: 0.75rem; }
       .syllabus-panel .panel-header { padding: 16px 18px; }
+      .registrar-text { padding: 24px 20px; }
+      .registrar-text::before { font-size: 4rem; left: 14px; }
     }
   </style>
 </head>
@@ -796,7 +884,7 @@
   </div>
 
   <!-- ========== HERO CAROUSEL ========== -->
-    <section class="hero-carousel" id="heroCarousel">
+  <section class="hero-carousel" id="heroCarousel">
     <div class="hero-track" id="heroTrack">
       <div class="hero-slide">
         <img src="https://i.ibb.co/gZRLbqN5/IMG-20261008-WA0003.jpg" alt="AI Certification / Internship Programs Banner">
@@ -841,7 +929,7 @@
       <h2 class="section-title">Choose your AI Certification / Internship</h2>
       <p class="section-sub">Three specialized tracks — from foundation to enterprise-level AI. All programs launch on <strong>5 October 2026</strong> and include hands-on labs, projects, and GGU certification.</p>
       <div class="program-grid">
-        <!-- CARD 1 — AI2026A1 -->
+        <!-- CARD 1 -->
         <div class="program-card">
           <span class="card-badge"><i class="fas fa-star" style="margin-right: 4px;"></i> AI2026A1</span>
           <h3>Certificate / Internship in Generative AI & Smart Digital Productivity</h3>
@@ -862,7 +950,7 @@
           </div>
         </div>
 
-        <!-- CARD 2 — AI2026B1 -->
+        <!-- CARD 2 -->
         <div class="program-card">
           <span class="card-badge"><i class="fas fa-briefcase" style="margin-right: 4px;"></i> AI2026B1</span>
           <h3>Professional Certificate / Internship in AI Productivity & Digital Transformation</h3>
@@ -878,12 +966,12 @@
             <li><i class="fas fa-check-circle"></i> AI research, analytics & ethics</li>
           </ul>
           <div class="card-footer">
-            <span><i class="far fa-calendar-alt"></i> Weekend batches</span>
+            <span><i class="far fa-calendar-alt"></i> 3–4 months</span>
             <button class="btn-register" onclick="window.open('regester.html', '_blank')">Register</button>
           </div>
         </div>
 
-        <!-- CARD 3 — AI2026C1 -->
+        <!-- CARD 3 -->
         <div class="program-card">
           <span class="card-badge"><i class="fas fa-building" style="margin-right: 4px;"></i> AI2026C1</span>
           <h3>Executive Certification / Internship in Enterprise AI & Intelligent Automation</h3>
@@ -899,7 +987,7 @@
             <li><i class="fas fa-check-circle"></i> Multi-agent systems & cloud AI</li>
           </ul>
           <div class="card-footer">
-            <span><i class="far fa-calendar-alt"></i> Evening classes</span>
+            <span><i class="far fa-calendar-alt"></i> 3–4 months</span>
             <button class="btn-register" onclick="window.open('regester.html', '_blank')">Register</button>
           </div>
         </div>
@@ -907,7 +995,7 @@
     </div>
   </section>
 
-  <!-- ========== FULL SYLLABUS (all modules per program) ========== -->
+  <!-- ========== FULL SYLLABUS ========== -->
   <section class="full-syllabus-section" id="syllabus">
     <div class="container">
       <h2 class="section-title">Complete Course Syllabus</h2>
@@ -925,7 +1013,7 @@
         </button>
       </div>
 
-      <!-- ============ A1 PANEL ============ -->
+      <!-- A1 PANEL -->
       <div class="syllabus-panel active" id="panel-A1">
         <div class="panel-header">
           <h3>AI2026A1 — Generative AI & Smart Digital Productivity</h3>
@@ -943,66 +1031,23 @@
               <tr><th>Module</th><th>Module Name &amp; Contents</th><th>Hours</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="mod-num">1</td>
-                <td><div class="mod-name">Introduction to Artificial Intelligence</div>Fundamentals of Artificial Intelligence, Evolution of AI, Generative AI Overview, AI Applications in Daily Life, AI Ethics and Responsible Usage</td>
-                <td class="mod-hours">7</td>
-              </tr>
-              <tr>
-                <td class="mod-num">2</td>
-                <td><div class="mod-name">AI Chatbots and Smart Assistants</div>ChatGPT, Gemini, AI Question Answering, AI Prompt Engineering Basics, AI Productivity Assistance</td>
-                <td class="mod-hours">7</td>
-              </tr>
-              <tr>
-                <td class="mod-num">3</td>
-                <td><div class="mod-name">AI Content Creation</div>AI Text Generation, AI Email Writing, AI Resume Building, AI Blog Writing, AI Storytelling Systems</td>
-                <td class="mod-hours">7</td>
-              </tr>
-              <tr>
-                <td class="mod-num">4</td>
-                <td><div class="mod-name">AI Design and Presentation Tools</div>Canva AI, Gamma AI, Tome AI, AI Poster Design, Smart Presentation Systems</td>
-                <td class="mod-hours">7</td>
-              </tr>
-              <tr>
-                <td class="mod-num">5</td>
-                <td><div class="mod-name">AI Image and Video Generation</div>AI Image Creation, AI Video Editing, AI Avatar Videos, AI Social Media Content, AI Marketing Basics</td>
-                <td class="mod-hours">7</td>
-              </tr>
-              <tr>
-                <td class="mod-num">6</td>
-                <td><div class="mod-name">AI Voice and Audio Systems</div>AI Voice Generation, AI Music Systems, Podcast Automation, AI Audio Editing, Speech-to-Text Systems</td>
-                <td class="mod-hours">7</td>
-              </tr>
-              <tr>
-                <td class="mod-num">7</td>
-                <td><div class="mod-name">AI Productivity Tools</div>AI Scheduling Systems, AI Note Generation, AI PDF Summarization, AI Search Systems, Smart Office Tools</td>
-                <td class="mod-hours">7</td>
-              </tr>
-              <tr>
-                <td class="mod-num">8</td>
-                <td><div class="mod-name">No-Code AI Applications</div>AI Website Builders, No-Code AI Platforms, AI Chatbots, AI Automation Basics, Drag-and-Drop Systems</td>
-                <td class="mod-hours">7</td>
-              </tr>
-              <tr>
-                <td class="mod-num">9</td>
-                <td><div class="mod-name">AI for Freelancing and Digital Careers</div>AI for YouTube, AI for Instagram, AI Content Monetization, AI Digital Branding, Freelancing Platforms</td>
-                <td class="mod-hours">7</td>
-              </tr>
-              <tr>
-                <td class="mod-num">10</td>
-                <td><div class="mod-name">Future AI Careers and Entrepreneurship</div>AI Startup Opportunities, AI Entrepreneurship, AI Career Guidance, Responsible AI, Future Intelligent Systems</td>
-                <td class="mod-hours">7</td>
-              </tr>
-              <tr class="total-row">
-                <td colspan="2">Total Contact Hours</td>
-                <td class="mod-hours">70</td>
-              </tr>
+              <tr><td class="mod-num">1</td><td><div class="mod-name">Introduction to Artificial Intelligence</div>Fundamentals of Artificial Intelligence, Evolution of AI, Generative AI Overview, AI Applications in Daily Life, AI Ethics and Responsible Usage</td><td class="mod-hours">7</td></tr>
+              <tr><td class="mod-num">2</td><td><div class="mod-name">AI Chatbots and Smart Assistants</div>ChatGPT, Gemini, AI Question Answering, AI Prompt Engineering Basics, AI Productivity Assistance</td><td class="mod-hours">7</td></tr>
+              <tr><td class="mod-num">3</td><td><div class="mod-name">AI Content Creation</div>AI Text Generation, AI Email Writing, AI Resume Building, AI Blog Writing, AI Storytelling Systems</td><td class="mod-hours">7</td></tr>
+              <tr><td class="mod-num">4</td><td><div class="mod-name">AI Design and Presentation Tools</div>Canva AI, Gamma AI, Tome AI, AI Poster Design, Smart Presentation Systems</td><td class="mod-hours">7</td></tr>
+              <tr><td class="mod-num">5</td><td><div class="mod-name">AI Image and Video Generation</div>AI Image Creation, AI Video Editing, AI Avatar Videos, AI Social Media Content, AI Marketing Basics</td><td class="mod-hours">7</td></tr>
+              <tr><td class="mod-num">6</td><td><div class="mod-name">AI Voice and Audio Systems</div>AI Voice Generation, AI Music Systems, Podcast Automation, AI Audio Editing, Speech-to-Text Systems</td><td class="mod-hours">7</td></tr>
+              <tr><td class="mod-num">7</td><td><div class="mod-name">AI Productivity Tools</div>AI Scheduling Systems, AI Note Generation, AI PDF Summarization, AI Search Systems, Smart Office Tools</td><td class="mod-hours">7</td></tr>
+              <tr><td class="mod-num">8</td><td><div class="mod-name">No-Code AI Applications</div>AI Website Builders, No-Code AI Platforms, AI Chatbots, AI Automation Basics, Drag-and-Drop Systems</td><td class="mod-hours">7</td></tr>
+              <tr><td class="mod-num">9</td><td><div class="mod-name">AI for Freelancing and Digital Careers</div>AI for YouTube, AI for Instagram, AI Content Monetization, AI Digital Branding, Freelancing Platforms</td><td class="mod-hours">7</td></tr>
+              <tr><td class="mod-num">10</td><td><div class="mod-name">Future AI Careers and Entrepreneurship</div>AI Startup Opportunities, AI Entrepreneurship, AI Career Guidance, Responsible AI, Future Intelligent Systems</td><td class="mod-hours">7</td></tr>
+              <tr class="total-row"><td colspan="2">Total Contact Hours</td><td class="mod-hours">70</td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- ============ B1 PANEL ============ -->
+      <!-- B1 PANEL -->
       <div class="syllabus-panel" id="panel-B1">
         <div class="panel-header">
           <h3>AI2026B1 — AI Productivity & Digital Transformation</h3>
@@ -1020,66 +1065,23 @@
               <tr><th>Module</th><th>Module Name &amp; Contents</th><th>Hours</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="mod-num">1</td>
-                <td><div class="mod-name">Foundations of AI</div>Introduction to AI, Intelligent Systems, AI Applications Across Domains, AI Productivity Ecosystem, AI Safety Basics</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">2</td>
-                <td><div class="mod-name">Prompt Engineering and AI Communication</div>Prompt Writing, Conversational AI, AI Documentation, AI Translation Systems, AI Query Optimization</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">3</td>
-                <td><div class="mod-name">AI Research and Academic Productivity</div>AI Literature Review, AI Citation Systems, AI Summarization, AI Presentation Systems, AI Knowledge Extraction</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">4</td>
-                <td><div class="mod-name">AI for Business Productivity</div>AI Office Systems, AI Communication Automation, AI Scheduling Systems, AI Email Systems, AI Task Automation</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">5</td>
-                <td><div class="mod-name">AI Analytics and Dashboards</div>AI-powered Excel, Intelligent Dashboards, AI Visualization, Business Intelligence, AI Reporting Systems</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">6</td>
-                <td><div class="mod-name">AI Marketing and Branding</div>AI Advertisement Systems, AI Branding, AI Social Media Automation, AI Content Systems, AI Marketing Analytics</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">7</td>
-                <td><div class="mod-name">Workflow Automation</div>AI Workflow Systems, Automation Platforms, AI Triggers, API Integrations, Enterprise AI Automation</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">8</td>
-                <td><div class="mod-name">AI for Industry Applications</div>AI in Healthcare, AI in Agriculture, AI in Education, AI in Finance, AI in Management</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">9</td>
-                <td><div class="mod-name">No-Code AI Development</div>AI Chatbots, AI Website Builders, AI CRM Systems, AI Dashboards, AI Automation Platforms</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">10</td>
-                <td><div class="mod-name">Ethical and Responsible AI</div>AI Governance, AI Privacy, AI Fairness, AI Security, Future AI Trends</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr class="total-row">
-                <td colspan="2">Total Contact Hours</td>
-                <td class="mod-hours">80</td>
-              </tr>
+              <tr><td class="mod-num">1</td><td><div class="mod-name">Foundations of AI</div>Introduction to AI, Intelligent Systems, AI Applications Across Domains, AI Productivity Ecosystem, AI Safety Basics</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">2</td><td><div class="mod-name">Prompt Engineering and AI Communication</div>Prompt Writing, Conversational AI, AI Documentation, AI Translation Systems, AI Query Optimization</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">3</td><td><div class="mod-name">AI Research and Academic Productivity</div>AI Literature Review, AI Citation Systems, AI Summarization, AI Presentation Systems, AI Knowledge Extraction</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">4</td><td><div class="mod-name">AI for Business Productivity</div>AI Office Systems, AI Communication Automation, AI Scheduling Systems, AI Email Systems, AI Task Automation</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">5</td><td><div class="mod-name">AI Analytics and Dashboards</div>AI-powered Excel, Intelligent Dashboards, AI Visualization, Business Intelligence, AI Reporting Systems</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">6</td><td><div class="mod-name">AI Marketing and Branding</div>AI Advertisement Systems, AI Branding, AI Social Media Automation, AI Content Systems, AI Marketing Analytics</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">7</td><td><div class="mod-name">Workflow Automation</div>AI Workflow Systems, Automation Platforms, AI Triggers, API Integrations, Enterprise AI Automation</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">8</td><td><div class="mod-name">AI for Industry Applications</div>AI in Healthcare, AI in Agriculture, AI in Education, AI in Finance, AI in Management</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">9</td><td><div class="mod-name">No-Code AI Development</div>AI Chatbots, AI Website Builders, AI CRM Systems, AI Dashboards, AI Automation Platforms</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">10</td><td><div class="mod-name">Ethical and Responsible AI</div>AI Governance, AI Privacy, AI Fairness, AI Security, Future AI Trends</td><td class="mod-hours">8</td></tr>
+              <tr class="total-row"><td colspan="2">Total Contact Hours</td><td class="mod-hours">80</td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <!-- ============ C1 PANEL ============ -->
+      <!-- C1 PANEL -->
       <div class="syllabus-panel" id="panel-C1">
         <div class="panel-header">
           <h3>AI2026C1 — Enterprise AI & Intelligent Automation</h3>
@@ -1097,60 +1099,17 @@
               <tr><th>Module</th><th>Module Name &amp; Contents</th><th>Hours</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="mod-num">1</td>
-                <td><div class="mod-name">Enterprise AI Ecosystem</div>Enterprise AI Systems, AI Transformation, Intelligent Organizations, AI Collaboration Platforms, AI Productivity Engineering</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">2</td>
-                <td><div class="mod-name">AI Office Automation</div>AI Email Automation, AI Documentation Systems, AI Scheduling, AI Meeting Intelligence, AI Office Assistants</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">3</td>
-                <td><div class="mod-name">Workflow Automation Engineering</div>Workflow Automation, API Integrations, AI Triggers and Actions, Enterprise Automation Pipelines, AI Monitoring Systems</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">4</td>
-                <td><div class="mod-name">AI Analytics and Business Intelligence</div>AI Dashboards, KPI Systems, AI Reporting, Predictive Analytics, Intelligent Insights</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">5</td>
-                <td><div class="mod-name">AI Communication and Customer Systems</div>AI Chatbots, AI CRM Systems, AI Customer Support, NLP Systems, AI Collaboration Tools</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">6</td>
-                <td><div class="mod-name">AI Marketing and Branding Automation</div>AI Campaign Systems, AI Presentation Automation, AI Branding, AI Social Media Automation, AI Advertisement Systems</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">7</td>
-                <td><div class="mod-name">Multi-Agent AI Systems</div>Agentic AI, Multi-Agent Collaboration, Autonomous AI Systems, AI Decision Pipelines, Intelligent Orchestration</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">8</td>
-                <td><div class="mod-name">Cloud AI and Enterprise Platforms</div>Cloud-based AI, AI Deployment, Enterprise Dashboards, AI Integrations, AI Monitoring</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">9</td>
-                <td><div class="mod-name">AI Governance and Security</div>AI Governance, AI Compliance, AI Cybersecurity, Privacy Preservation, AI Risk Management</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr>
-                <td class="mod-num">10</td>
-                <td><div class="mod-name">Future Intelligent Enterprises</div>Industry 5.0, Autonomous Digital Employees, Human-AI Collaboration, Sustainable AI Systems, Future Enterprise Automation</td>
-                <td class="mod-hours">8</td>
-              </tr>
-              <tr class="total-row">
-                <td colspan="2">Total Contact Hours</td>
-                <td class="mod-hours">80</td>
-              </tr>
+              <tr><td class="mod-num">1</td><td><div class="mod-name">Enterprise AI Ecosystem</div>Enterprise AI Systems, AI Transformation, Intelligent Organizations, AI Collaboration Platforms, AI Productivity Engineering</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">2</td><td><div class="mod-name">AI Office Automation</div>AI Email Automation, AI Documentation Systems, AI Scheduling, AI Meeting Intelligence, AI Office Assistants</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">3</td><td><div class="mod-name">Workflow Automation Engineering</div>Workflow Automation, API Integrations, AI Triggers and Actions, Enterprise Automation Pipelines, AI Monitoring Systems</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">4</td><td><div class="mod-name">AI Analytics and Business Intelligence</div>AI Dashboards, KPI Systems, AI Reporting, Predictive Analytics, Intelligent Insights</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">5</td><td><div class="mod-name">AI Communication and Customer Systems</div>AI Chatbots, AI CRM Systems, AI Customer Support, NLP Systems, AI Collaboration Tools</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">6</td><td><div class="mod-name">AI Marketing and Branding Automation</div>AI Campaign Systems, AI Presentation Automation, AI Branding, AI Social Media Automation, AI Advertisement Systems</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">7</td><td><div class="mod-name">Multi-Agent AI Systems</div>Agentic AI, Multi-Agent Collaboration, Autonomous AI Systems, AI Decision Pipelines, Intelligent Orchestration</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">8</td><td><div class="mod-name">Cloud AI and Enterprise Platforms</div>Cloud-based AI, AI Deployment, Enterprise Dashboards, AI Integrations, AI Monitoring</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">9</td><td><div class="mod-name">AI Governance and Security</div>AI Governance, AI Compliance, AI Cybersecurity, Privacy Preservation, AI Risk Management</td><td class="mod-hours">8</td></tr>
+              <tr><td class="mod-num">10</td><td><div class="mod-name">Future Intelligent Enterprises</div>Industry 5.0, Autonomous Digital Employees, Human-AI Collaboration, Sustainable AI Systems, Future Enterprise Automation</td><td class="mod-hours">8</td></tr>
+              <tr class="total-row"><td colspan="2">Total Contact Hours</td><td class="mod-hours">80</td></tr>
             </tbody>
           </table>
         </div>
@@ -1269,7 +1228,7 @@
     </div>
   </section>
 
-  <!-- ========== MESSAGE FROM LEADERSHIP ========== -->
+  <!-- ========== MESSAGE FROM LEADERSHIP (VC) ========== -->
   <section class="leadership-section">
     <div class="container">
       <h2 class="section-title">Message from Leadership</h2>
@@ -1291,6 +1250,33 @@
     </div>
   </section>
 
+  <!-- ========== REGISTRAR MESSAGE (Prof. Ashwini Dixit) ========== -->
+  <section class="registrar-section">
+    <div class="container">
+      <h2 class="section-title">Message from the Registrar</h2>
+      <p class="section-sub">A warm welcome to the AI Certification / Internship Programs at Guru Ghasidas Vishwavidyalaya.</p>
+      <div class="registrar-grid">
+        <div class="registrar-photo">
+          <img src="https://ggu.ac.in/media/staff/WhatsApp_Image_2024-12-27_at_12.52.51_PM.jpeg" alt="Prof. Ashwini Dixit, Registrar">
+          <div class="registrar-caption">
+            <h4>Prof. Ashwini Dixit</h4>
+            <p>Registrar, Guru Ghasidas Vishwavidyalaya</p>
+          </div>
+        </div>
+        <div class="registrar-text">
+          <h3>Registrar's Message</h3>
+          <p>It is a matter of great pride that Guru Ghasidas Vishwavidyalaya is launching the <strong>AI Certification / Internship Programs</strong> for students and professionals across all disciplines. In the era of rapid digital transformation, AI literacy is no longer optional—it is essential for academic excellence and career growth.</p>
+          <p>These programs are carefully designed to provide hands-on exposure to cutting-edge AI tools, ethical AI practices, and real-world applications. Whether you are a student beginning your journey, a graduate looking to upskill, or a working professional seeking to lead AI-driven transformation, these courses will empower you with the knowledge and confidence to excel.</p>
+          <p>I encourage all eligible candidates to take full advantage of this opportunity and become part of India's AI-ready workforce. The University remains committed to delivering quality education and fostering innovation for the benefit of society.</p>
+          <div class="signature">
+            — Prof. Ashwini Dixit
+            <span>Registrar, Guru Ghasidas Vishwavidyalaya, Bilaspur (C.G.)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== FAQ SECTION ========== -->
   <section class="faq-section" id="faq">
     <div class="container">
@@ -1299,7 +1285,7 @@
       <div class="faq-grid">
         <div class="faq-item">
           <div class="faq-question">When does the course launch? <i class="fas fa-chevron-down"></i></div>
-          <div class="faq-answer">All three AI Certification / Internship programs launch on <strong>5 October 2026</strong>. Registration is open now. Weekend and evening batches are available.</div>
+          <div class="faq-answer">All three AI Certification / Internship programs launch on <strong>5 October 2026</strong>. Registration is open now.</div>
         </div>
         <div class="faq-item">
           <div class="faq-question">Who can enroll in these AI Certification / Internship programs? <i class="fas fa-chevron-down"></i></div>
@@ -1307,7 +1293,7 @@
         </div>
         <div class="faq-item">
           <div class="faq-question">What is the duration and mode of delivery? <i class="fas fa-chevron-down"></i></div>
-          <div class="faq-answer">Duration is 3–4 months. <strong>AI2026A1:</strong> 70 contact hours (7h per module). <strong>AI2026B1:</strong> 80 contact hours (35h theory + 45h practical). <strong>AI2026C1:</strong> 80 contact hours (8h per module). Classes are held online/offline, preferably on weekends or evenings.</div>
+          <div class="faq-answer">Duration is 3–4 months. <strong>AI2026A1:</strong> 70 contact hours (7h per module). <strong>AI2026B1:</strong> 80 contact hours (35h theory + 45h practical). <strong>AI2026C1:</strong> 80 contact hours (8h per module). Classes are held online/offline in blended mode.</div>
         </div>
         <div class="faq-item">
           <div class="faq-question">What is the attendance requirement? <i class="fas fa-chevron-down"></i></div>
@@ -1348,7 +1334,7 @@
         </table>
       </div>
 
-      <h3 style="font-size: 1.3rem; font-weight: 700; margin: 32px 0 10px; color: #0a1c36;"> Rules & regulations</h3>
+      <h3 style="font-size: 1.3rem; font-weight: 700; margin: 32px 0 10px; color: #0a1c36;">Rules &amp; Regulations</h3>
       <div class="rules-grid">
         <div class="rule-item"><span class="rule-num">1</span><p>Minimum 60% attendance mandatory for exam & certification.</p></div>
         <div class="rule-item"><span class="rule-num">2</span><p>Assignments and mini-projects must be submitted before deadlines.</p></div>
@@ -1522,12 +1508,8 @@
       syllabusTabs.forEach(tab => {
         tab.addEventListener('click', () => {
           const program = tab.dataset.program;
-
-          // Update active tab
           syllabusTabs.forEach(t => t.classList.remove('active'));
           tab.classList.add('active');
-
-          // Update active panel
           syllabusPanels.forEach(p => p.classList.remove('active'));
           const targetPanel = document.getElementById('panel-' + program);
           if (targetPanel) targetPanel.classList.add('active');
@@ -1642,16 +1624,13 @@
         return /^[6-9]\d{9}$/.test(mobile);
       }
 
-      // Download brochure button — sends data to sheet, then downloads PDF
       downloadBtn.addEventListener('click', async () => {
         const email = popupEmail.value.trim();
         const mobile = popupMobile.value.trim();
 
-        // Reset error styles
         popupEmail.classList.remove('error');
         popupMobile.classList.remove('error');
 
-        // Validation
         if (!email || !validateEmail(email)) {
           popupEmail.classList.add('error');
           popupEmail.focus();
@@ -1663,13 +1642,11 @@
           return;
         }
 
-        // Disable button while sending
         downloadBtn.disabled = true;
         const originalHTML = downloadBtn.innerHTML;
         downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
 
         try {
-          // Send data to Apps Script
           const params = new URLSearchParams();
           params.append('payload', JSON.stringify({
             email: email,
@@ -1683,11 +1660,9 @@
             body: params
           });
 
-          // Show success view
           popupFormView.style.display = 'none';
           popupSuccessView.classList.add('show');
 
-          // Trigger brochure download after a short delay
           setTimeout(() => {
             const link = document.createElement('a');
             link.href = 'brouser.pdf';
@@ -1697,7 +1672,6 @@
             document.body.removeChild(link);
           }, 800);
 
-          // Auto-close popup after 4 seconds
           setTimeout(() => {
             popupOverlay.classList.remove('show');
           }, 4000);
