@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO Meta Data -->
-  <title>Guru Ghasidas Vishwavidyalaya | AI Certificate Programs 2026</title>
-  <meta name="description" content="Professional AI certifications from Guru Ghasidas Vishwavidyalaya. Master Generative AI, productivity tools, automation & digital transformation. 3-4 months, online/offline.">
-  <meta name="keywords" content="AI certificate, GGU, Guru Ghasidas Vishwavidyalaya, Generative AI, Prompt Engineering, Digital Transformation, AI Productivity, Executive AI, Bilaspur University">
+  <title>AI Certification / Internship | Guru Ghasidas Vishwavidyalaya 2026</title>
+  <meta name="description" content="AI Certification / Internship programs from Guru Ghasidas Vishwavidyalaya. Master Generative AI, productivity tools, automation & digital transformation. Launching 5 October 2026.">
+  <meta name="keywords" content="AI certification, AI internship, GGU, Guru Ghasidas Vishwavidyalaya, Generative AI, Prompt Engineering, Digital Transformation, AI Productivity, Executive AI, Bilaspur University">
   <meta name="author" content="Guru Ghasidas Vishwavidyalaya">
   <meta name="robots" content="index, follow">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="AI Certificate Programs | Guru Ghasidas Vishwavidyalaya">
-  <meta property="og:description" content="Professional certifications in AI Productivity, Generative AI & Enterprise Automation. 10 modules, 80 contact hours.">
+  <meta property="og:title" content="AI Certification / Internship | Guru Ghasidas Vishwavidyalaya">
+  <meta property="og:description" content="AI Certification / Internship programs launching 5 October 2026. 70-80 contact hours, hands-on labs, projects, and GGU certification.">
   <meta property="og:image" content="https://thumb.wikimedia.org/wikipedia/en/thumb/3/3a/Guru_Ghasidas_University_Insignia.svg/500px-Guru_Ghasidas_University_Insignia.svg.png">
   <meta property="og:type" content="website">
   
@@ -105,6 +105,33 @@
     }
     .btn-apply-floating:hover { background: #0d3d8a; transform: translateX(-50%) scale(1.03); }
 
+    /* ========== LAUNCH BANNER ========== */
+    .launch-banner {
+      background: linear-gradient(90deg, #0a2f6c, #1e4b8a, #0a2f6c);
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      position: relative;
+      overflow: hidden;
+    }
+    .launch-banner::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(245,176,65,0.3), transparent);
+      animation: shine 3s infinite;
+    }
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    .launch-banner i { color: var(--ggu-gold); margin-right: 8px; }
+    .launch-banner strong { color: var(--ggu-gold); }
+
     /* ========== HERO CAROUSEL ========== */
     .hero-carousel {
       position: relative; overflow: hidden; background: #f0f7ff;
@@ -122,12 +149,48 @@
       min-width: 100%; display: flex;
       align-items: center; justify-content: center;
       padding: 0; background: #f0f7ff;
+      position: relative;
     }
 
     .hero-slide img {
       width: 100%; height: auto; max-height: 550px;
       object-fit: contain; display: block; margin: 0 auto;
     }
+
+    .hero-slide .hero-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(10,47,108,0.85));
+      padding: 40px 24px 30px;
+      color: white;
+      text-align: center;
+    }
+
+    .hero-slide .hero-overlay h2 {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 800;
+      margin-bottom: 6px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .hero-slide .hero-overlay p {
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      opacity: 0.95;
+    }
+    .hero-slide .hero-overlay .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ggu-gold);
+      color: #0a2f6c;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin-top: 12px;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+    .hero-slide .hero-overlay .hero-cta:hover { transform: scale(1.05); }
 
     .hero-carousel-btn {
       position: absolute; top: 50%; transform: translateY(-50%);
@@ -172,7 +235,7 @@
     /* ========== PROGRAM CARDS ========== */
     .programs-section { padding: 50px 0; background: white; }
     .program-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 24px; margin-top: 20px;
     }
 
@@ -181,6 +244,7 @@
       box-shadow: var(--card-shadow); padding: 24px 20px 22px;
       border: 1px solid #e9f0f8; transition: all 0.25s ease;
       display: flex; flex-direction: column;
+      position: relative;
     }
     .program-card:hover {
       transform: translateY(-4px);
@@ -196,14 +260,14 @@
     }
 
     .program-card h3 {
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
       font-weight: 700; margin-bottom: 10px;
       color: #0e263f; line-height: 1.3;
     }
 
     .program-meta {
       display: flex; flex-wrap: wrap; gap: 10px 14px;
-      margin: 12px 0 10px; font-size: 0.8rem; color: #3f536c;
+      margin: 12px 0 10px; font-size: 0.78rem; color: #3f536c;
     }
     .program-meta i { color: var(--ggu-blue); width: 14px; margin-right: 4px; }
 
@@ -213,25 +277,40 @@
       font-size: 0.75rem; display: inline-block;
     }
 
+    .launch-tag {
+      background: linear-gradient(135deg, #fff3d6, #fde8b8);
+      color: #8a5a0a;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 30px;
+      font-size: 0.72rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      letter-spacing: 0.3px;
+    }
+    .launch-tag i { color: #e67e22; }
+
     .program-card ul { list-style: none; margin: 14px 0 12px; }
     .program-card ul li {
-      font-size: 0.82rem; color: #2c405b; margin-bottom: 6px;
+      font-size: 0.8rem; color: #2c405b; margin-bottom: 6px;
       display: flex; align-items: flex-start; gap: 8px;
     }
     .program-card ul li i {
-      color: var(--ggu-gold); font-size: 0.8rem; margin-top: 4px;
+      color: var(--ggu-gold); font-size: 0.78rem; margin-top: 4px;
     }
 
     .card-footer {
       margin-top: auto; border-top: 1px solid #e4edf7;
-      padding-top: 14px; font-size: 0.78rem;
+      padding-top: 14px; font-size: 0.75rem;
       display: flex; justify-content: space-between;
       align-items: center; color: #506177;
     }
 
     .card-footer .btn-register {
       background: var(--ggu-blue); color: white; border: none;
-      padding: 6px 16px; border-radius: 30px;
+      padding: 7px 18px; border-radius: 30px;
       font-weight: 600; font-size: 0.72rem;
       cursor: pointer; transition: background 0.2s;
     }
@@ -321,8 +400,83 @@
       background: var(--ggu-blue); width: 26px; border-radius: 20px;
     }
 
+    /* ========== FULL SYLLABUS TABLE ========== */
+    .full-syllabus-section { padding: 50px 0; background: white; }
+    .syllabus-tabs {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;
+    }
+    .syllabus-tab {
+      padding: 10px 22px; border-radius: 40px;
+      border: 2px solid #dce6f2; background: white;
+      font-weight: 600; font-size: 0.82rem; color: #3f536c;
+      cursor: pointer; transition: all 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    .syllabus-tab:hover { border-color: var(--ggu-blue); color: var(--ggu-blue); }
+    .syllabus-tab.active {
+      background: var(--ggu-blue); color: white; border-color: var(--ggu-blue);
+    }
+
+    .syllabus-panel { display: none; }
+    .syllabus-panel.active { display: block; animation: fade 0.35s ease; }
+
+    .syllabus-panel .panel-header {
+      background: linear-gradient(135deg, #0a2f6c, #1e4b8a);
+      color: white; border-radius: 20px; padding: 22px 26px;
+      margin-bottom: 18px; box-shadow: var(--card-shadow);
+    }
+    .syllabus-panel .panel-header h3 {
+      font-size: 1.2rem; font-weight: 700; margin-bottom: 6px;
+    }
+    .syllabus-panel .panel-header p {
+      font-size: 0.85rem; color: #d6e3f7; margin-bottom: 4px;
+    }
+    .syllabus-panel .panel-header .panel-meta {
+      display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px;
+      font-size: 0.78rem;
+    }
+    .syllabus-panel .panel-header .panel-meta span {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.12);
+      padding: 4px 12px; border-radius: 30px;
+    }
+    .syllabus-panel .panel-header .panel-meta i { color: var(--ggu-gold); }
+
+    .syllabus-table {
+      width: 100%; border-collapse: collapse;
+      font-size: 0.82rem; min-width: 600px;
+    }
+    .syllabus-table th {
+      background: #eef4fd; color: #0a2f6c; font-weight: 700;
+      padding: 12px 10px; text-align: left;
+      border-bottom: 2px solid #d3e2f2;
+      font-size: 0.75rem; letter-spacing: 0.3px;
+    }
+    .syllabus-table td {
+      padding: 12px 10px; border-bottom: 1px solid #e6eef8;
+      color: #1d314b; vertical-align: top;
+    }
+    .syllabus-table tr:hover td { background: #f9fcff; }
+    .syllabus-table .mod-num {
+      font-weight: 700; color: var(--ggu-blue);
+      font-size: 0.8rem; white-space: nowrap;
+    }
+    .syllabus-table .mod-name {
+      font-weight: 600; color: #0a1c36;
+    }
+    .syllabus-table .mod-hours {
+      text-align: center; font-weight: 700;
+      color: var(--ggu-blue); font-size: 0.9rem;
+      background: #f4f9ff; border-radius: 8px;
+    }
+    .syllabus-table .total-row td {
+      background: #0a2f6c; color: white;
+      font-weight: 700; font-size: 0.85rem;
+      text-align: center;
+    }
+
     /* ========== LEADERSHIP ========== */
-    .leadership-section { padding: 50px 0; background: white; }
+    .leadership-section { padding: 50px 0; background: #f1f6fd; }
     .leadership-grid {
       display: grid; grid-template-columns: 1.4fr 0.6fr;
       gap: 40px; align-items: start; margin-top: 20px;
@@ -338,7 +492,7 @@
     }
 
     .leadership-card {
-      background: #f9fcff; border-radius: 24px;
+      background: white; border-radius: 24px;
       padding: 28px 20px; text-align: center;
       box-shadow: var(--card-shadow); border: 1px solid #e0ebf7;
     }
@@ -354,14 +508,14 @@
     .leadership-card p { font-size: 0.85rem; color: #4d627c; }
 
     /* ========== FAQ ========== */
-    .faq-section { padding: 50px 0; background: #f1f6fd; }
+    .faq-section { padding: 50px 0; background: white; }
     .faq-grid {
       display: grid; grid-template-columns: 1fr;
       gap: 12px; margin-top: 24px;
     }
 
     .faq-item {
-      background: white; border-radius: 16px;
+      background: #fafdff; border-radius: 16px;
       border: 1px solid #e0ebf7; overflow: hidden;
       transition: box-shadow 0.2s;
     }
@@ -382,12 +536,12 @@
       max-height: 0; overflow: hidden;
       transition: max-height 0.4s ease, padding 0.3s;
       padding: 0 20px; color: #3f536c;
-      font-size: 0.9rem; background: #fafdff;
+      font-size: 0.9rem; background: white;
     }
-    .faq-item.active .faq-answer { max-height: 300px; padding: 0 20px 18px; }
+    .faq-item.active .faq-answer { max-height: 400px; padding: 0 20px 18px; }
 
     /* ========== SOP ========== */
-    .sop-section { padding: 50px 0; background: white; }
+    .sop-section { padding: 50px 0; background: #f1f6fd; }
     .table-responsive {
       overflow-x: auto; border-radius: 20px;
       border: 1px solid #e0ebf5; background: white;
@@ -414,7 +568,7 @@
       gap: 14px; margin-top: 24px;
     }
     .rule-item {
-      background: #fafdff; border-radius: 14px;
+      background: white; border-radius: 14px;
       padding: 14px 14px; border: 1px solid #e0ebf7;
       display: flex; gap: 10px; align-items: flex-start;
     }
@@ -584,11 +738,13 @@
       .logo-text h1 { font-size: 0.8rem; }
       .logo-text span { font-size: 0.5rem; }
       .logo-area img { height: 32px; }
+      .launch-banner { font-size: 0.72rem; padding: 8px 12px; }
     }
 
     @media (max-width: 480px) {
       .container { padding: 0 14px; }
       .hero-slide img { max-height: 280px; }
+      .hero-slide .hero-overlay { padding: 24px 14px 18px; }
       .hero-carousel-btn { width: 28px; height: 28px; font-size: 0.7rem; }
       .hero-dots { bottom: 10px; }
       .hero-dot { width: 7px; height: 7px; }
@@ -599,6 +755,8 @@
       .popup-box { padding: 24px 18px 20px; }
       .popup-box h3 { font-size: 1.15rem; }
       .footer-logo img { height: 40px; }
+      .syllabus-tab { padding: 8px 16px; font-size: 0.75rem; }
+      .syllabus-panel .panel-header { padding: 16px 18px; }
     }
   </style>
 </head>
@@ -611,7 +769,7 @@
         <img src="https://thumb.wikimedia.org/wikipedia/en/thumb/3/3a/Guru_Ghasidas_University_Insignia.svg/500px-Guru_Ghasidas_University_Insignia.svg.png" alt="Guru Ghasidas Vishwavidyalaya Logo">
         <div class="logo-text">
           <h1>Guru Ghasidas Vishwavidyalaya</h1>
-          <span>AI Certificate Programs · 2026</span>
+          <span>AI Certification / Internship · 2026</span>
         </div>
       </div>
       <div class="nav-links">
@@ -631,17 +789,44 @@
     <i class="fas fa-graduation-cap"></i> Apply Now
   </button>
 
+  <!-- ========== LAUNCH BANNER ========== -->
+  <div class="launch-banner">
+    <i class="fas fa-rocket"></i>
+    <strong>Course Launch: 5 October 2026</strong> — Registration open now for all three AI Certification / Internship programs
+  </div>
+
   <!-- ========== HERO CAROUSEL ========== -->
   <section class="hero-carousel" id="heroCarousel">
     <div class="hero-track" id="heroTrack">
       <div class="hero-slide">
-        <img src="https://cdn.itm.ac.in/2026/02/AI-Courses-After-12th.jpeg" alt="AI Certificate Programs Banner">
+        <img src="https://cdn.itm.ac.in/2026/02/AI-Courses-After-12th.jpeg" alt="AI Certification / Internship Programs Banner">
+        <div class="hero-overlay">
+          <h2>AI Certification / Internship 2026</h2>
+          <p>Launching 5 October 2026 · 70–80 contact hours · Hands-on AI skills</p>
+          <a href="regester.html" target="_blank" class="hero-cta">
+            <i class="fas fa-graduation-cap"></i> Apply Now
+          </a>
+        </div>
       </div>
       <div class="hero-slide">
-        <img src="https://cdn.shifttotech.co.in/images/ai-course-in-bangalore.jpeg" alt="Generative AI Banner">
+        <img src="https://cdn.shifttotech.co.in/images/ai-course-in-bangalore.jpeg" alt="Generative AI Certification">
+        <div class="hero-overlay">
+          <h2>Generative AI & Smart Productivity</h2>
+          <p>ChatGPT, Gemini, Canva AI, Gamma, Tome & more</p>
+          <a href="regester.html" target="_blank" class="hero-cta">
+            <i class="fas fa-graduation-cap"></i> Apply Now
+          </a>
+        </div>
       </div>
       <div class="hero-slide">
-        <img src="https://images.codebasics.io/filters:format(webp)/81349/Course_thumbnails/Thumbnail_AI_for_Everyone.webp" alt="Executive AI Banner">
+        <img src="https://images.codebasics.io/filters:format(webp)/81349/Course_thumbnails/Thumbnail_AI_for_Everyone.webp" alt="Executive AI Certification">
+        <div class="hero-overlay">
+          <h2>Enterprise AI & Intelligent Automation</h2>
+          <p>For professionals, faculty, entrepreneurs & managers</p>
+          <a href="regester.html" target="_blank" class="hero-cta">
+            <i class="fas fa-graduation-cap"></i> Apply Now
+          </a>
+        </div>
       </div>
     </div>
 
@@ -653,40 +838,44 @@
   <!-- ========== PROGRAM CARDS ========== -->
   <section class="programs-section" id="programs">
     <div class="container">
-      <h2 class="section-title">Choose your AI certification</h2>
-      <p class="section-sub">Three specialized tracks — from foundation to enterprise-level AI. Each program includes hands-on labs, projects, and certification.</p>
+      <h2 class="section-title">Choose your AI Certification / Internship</h2>
+      <p class="section-sub">Three specialized tracks — from foundation to enterprise-level AI. All programs launch on <strong>5 October 2026</strong> and include hands-on labs, projects, and GGU certification.</p>
       <div class="program-grid">
+        <!-- CARD 1 — AI2026A1 -->
         <div class="program-card">
           <span class="card-badge"><i class="fas fa-star" style="margin-right: 4px;"></i> AI2026A1</span>
-          <h3>Certificate in Generative AI & Smart Digital Productivity</h3>
+          <h3>Certificate / Internship in Generative AI & Smart Digital Productivity</h3>
           <div class="program-meta">
             <span><i class="fas fa-users"></i> 12th-pass (any stream)</span>
-            <span><i class="fas fa-hourglass-half"></i> 8h/module</span>
+            <span><i class="fas fa-hourglass-half"></i> 7h/module · 70 hrs</span>
           </div>
           <div class="fee-tag">GGU: ₹3,500 · External: ₹9,000</div>
+          <div class="launch-tag"><i class="fas fa-calendar-check"></i> Launch: 5 October 2026</div>
           <ul>
-            <li><i class="fas fa-check-circle"></i> 10 modules · 80 hours</li>
-            <li><i class="fas fa-check-circle"></i> ChatGPT, Gemini, Canva AI, Gamma</li>
+            <li><i class="fas fa-check-circle"></i> 10 modules · 70 contact hours</li>
+            <li><i class="fas fa-check-circle"></i> ChatGPT, Gemini, Canva AI, Gamma, Tome</li>
             <li><i class="fas fa-check-circle"></i> Freelancing & digital portfolio</li>
           </ul>
           <div class="card-footer">
-            <span><i class="far fa-calendar-alt"></i> Batch starts soon</span>
+            <span><i class="far fa-calendar-alt"></i> 3–4 months</span>
             <button class="btn-register" onclick="window.open('regester.html', '_blank')">Register</button>
           </div>
         </div>
 
+        <!-- CARD 2 — AI2026B1 -->
         <div class="program-card">
           <span class="card-badge"><i class="fas fa-briefcase" style="margin-right: 4px;"></i> AI2026B1</span>
-          <h3>Professional Certificate in AI Productivity & Digital Transformation</h3>
+          <h3>Professional Certificate / Internship in AI Productivity & Digital Transformation</h3>
           <div class="program-meta">
-            <span><i class="fas fa-users"></i> Non-CSE/IT students</span>
-            <span><i class="fas fa-hourglass-half"></i> 80 hours</span>
+            <span><i class="fas fa-users"></i> Graduate students</span>
+            <span><i class="fas fa-hourglass-half"></i> 80 hrs · 3-4 months</span>
           </div>
           <div class="fee-tag">GGU: ₹3,500 · External: ₹9,000</div>
+          <div class="launch-tag"><i class="fas fa-calendar-check"></i> Launch: 5 October 2026</div>
           <ul>
-            <li><i class="fas fa-check-circle"></i> AI research, analytics & reporting</li>
-            <li><i class="fas fa-check-circle"></i> Workflow automation & no-code</li>
-            <li><i class="fas fa-check-circle"></i> Industry applications & ethics</li>
+            <li><i class="fas fa-check-circle"></i> 10 modules · 80 contact hours</li>
+            <li><i class="fas fa-check-circle"></i> 35h theory + 45h practical</li>
+            <li><i class="fas fa-check-circle"></i> AI research, analytics & ethics</li>
           </ul>
           <div class="card-footer">
             <span><i class="far fa-calendar-alt"></i> Weekend batches</span>
@@ -694,18 +883,20 @@
           </div>
         </div>
 
+        <!-- CARD 3 — AI2026C1 -->
         <div class="program-card">
           <span class="card-badge"><i class="fas fa-building" style="margin-right: 4px;"></i> AI2026C1</span>
-          <h3>Executive Certification in Enterprise AI & Intelligent Automation</h3>
+          <h3>Executive Certification / Internship in Enterprise AI & Intelligent Automation</h3>
           <div class="program-meta">
             <span><i class="fas fa-users"></i> Working professionals</span>
-            <span><i class="fas fa-hourglass-half"></i> 80 hours</span>
+            <span><i class="fas fa-hourglass-half"></i> 8h/module · 80 hrs</span>
           </div>
-          <div class="fee-tag">GGU: ₹3,500 · External: ₹9,000</div>
+          <div class="fee-tag">GGV Staff: ₹3,500 · External: ₹9,000</div>
+          <div class="launch-tag"><i class="fas fa-calendar-check"></i> Launch: 5 October 2026</div>
           <ul>
+            <li><i class="fas fa-check-circle"></i> 10 modules · 80 contact hours</li>
             <li><i class="fas fa-check-circle"></i> Enterprise AI & workflow engineering</li>
             <li><i class="fas fa-check-circle"></i> Multi-agent systems & cloud AI</li>
-            <li><i class="fas fa-check-circle"></i> Governance, security & compliance</li>
           </ul>
           <div class="card-footer">
             <span><i class="far fa-calendar-alt"></i> Evening classes</span>
@@ -716,11 +907,262 @@
     </div>
   </section>
 
-  <!-- ========== SYLLABUS CAROUSEL ========== -->
-  <section class="carousel-section" id="syllabus">
+  <!-- ========== FULL SYLLABUS (all modules per program) ========== -->
+  <section class="full-syllabus-section" id="syllabus">
     <div class="container">
-      <h2 class="section-title">Program syllabus snapshot</h2>
-      <p class="section-sub">A quick look at modules across our AI certification tracks. Each module is 8 hours of theory + hands-on.</p>
+      <h2 class="section-title">Complete Course Syllabus</h2>
+      <p class="section-sub">All modules across our AI Certification / Internship programs. Click on a program to view its full module list.</p>
+
+      <div class="syllabus-tabs">
+        <button class="syllabus-tab active" data-program="A1">
+          <i class="fas fa-star"></i> AI2026A1 · 70 hrs
+        </button>
+        <button class="syllabus-tab" data-program="B1">
+          <i class="fas fa-briefcase"></i> AI2026B1 · 80 hrs
+        </button>
+        <button class="syllabus-tab" data-program="C1">
+          <i class="fas fa-building"></i> AI2026C1 · 80 hrs
+        </button>
+      </div>
+
+      <!-- ============ A1 PANEL ============ -->
+      <div class="syllabus-panel active" id="panel-A1">
+        <div class="panel-header">
+          <h3>AI2026A1 — Generative AI & Smart Digital Productivity</h3>
+          <p>Certificate / Internship · 12th-pass students (any stream)</p>
+          <div class="panel-meta">
+            <span><i class="fas fa-clock"></i> 70 Contact Hours</span>
+            <span><i class="fas fa-layer-group"></i> 10 Modules</span>
+            <span><i class="fas fa-calendar-check"></i> Launch: 5 Oct 2026</span>
+            <span><i class="fas fa-rupee-sign"></i> ₹3,500 / ₹9,000</span>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="syllabus-table">
+            <thead>
+              <tr><th>Module</th><th>Module Name &amp; Contents</th><th>Hours</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mod-num">1</td>
+                <td><div class="mod-name">Introduction to Artificial Intelligence</div>Fundamentals of Artificial Intelligence, Evolution of AI, Generative AI Overview, AI Applications in Daily Life, AI Ethics and Responsible Usage</td>
+                <td class="mod-hours">7</td>
+              </tr>
+              <tr>
+                <td class="mod-num">2</td>
+                <td><div class="mod-name">AI Chatbots and Smart Assistants</div>ChatGPT, Gemini, AI Question Answering, AI Prompt Engineering Basics, AI Productivity Assistance</td>
+                <td class="mod-hours">7</td>
+              </tr>
+              <tr>
+                <td class="mod-num">3</td>
+                <td><div class="mod-name">AI Content Creation</div>AI Text Generation, AI Email Writing, AI Resume Building, AI Blog Writing, AI Storytelling Systems</td>
+                <td class="mod-hours">7</td>
+              </tr>
+              <tr>
+                <td class="mod-num">4</td>
+                <td><div class="mod-name">AI Design and Presentation Tools</div>Canva AI, Gamma AI, Tome AI, AI Poster Design, Smart Presentation Systems</td>
+                <td class="mod-hours">7</td>
+              </tr>
+              <tr>
+                <td class="mod-num">5</td>
+                <td><div class="mod-name">AI Image and Video Generation</div>AI Image Creation, AI Video Editing, AI Avatar Videos, AI Social Media Content, AI Marketing Basics</td>
+                <td class="mod-hours">7</td>
+              </tr>
+              <tr>
+                <td class="mod-num">6</td>
+                <td><div class="mod-name">AI Voice and Audio Systems</div>AI Voice Generation, AI Music Systems, Podcast Automation, AI Audio Editing, Speech-to-Text Systems</td>
+                <td class="mod-hours">7</td>
+              </tr>
+              <tr>
+                <td class="mod-num">7</td>
+                <td><div class="mod-name">AI Productivity Tools</div>AI Scheduling Systems, AI Note Generation, AI PDF Summarization, AI Search Systems, Smart Office Tools</td>
+                <td class="mod-hours">7</td>
+              </tr>
+              <tr>
+                <td class="mod-num">8</td>
+                <td><div class="mod-name">No-Code AI Applications</div>AI Website Builders, No-Code AI Platforms, AI Chatbots, AI Automation Basics, Drag-and-Drop Systems</td>
+                <td class="mod-hours">7</td>
+              </tr>
+              <tr>
+                <td class="mod-num">9</td>
+                <td><div class="mod-name">AI for Freelancing and Digital Careers</div>AI for YouTube, AI for Instagram, AI Content Monetization, AI Digital Branding, Freelancing Platforms</td>
+                <td class="mod-hours">7</td>
+              </tr>
+              <tr>
+                <td class="mod-num">10</td>
+                <td><div class="mod-name">Future AI Careers and Entrepreneurship</div>AI Startup Opportunities, AI Entrepreneurship, AI Career Guidance, Responsible AI, Future Intelligent Systems</td>
+                <td class="mod-hours">7</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="2">Total Contact Hours</td>
+                <td class="mod-hours">70</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ============ B1 PANEL ============ -->
+      <div class="syllabus-panel" id="panel-B1">
+        <div class="panel-header">
+          <h3>AI2026B1 — AI Productivity & Digital Transformation</h3>
+          <p>Professional Certificate / Internship · Graduate students (Commerce, Arts, Agriculture, Science, Education, Pharmacy, Management, Civil, Mechanical, Biotechnology, Electrical, Electronics, CS, IT, AI, ML, DS)</p>
+          <div class="panel-meta">
+            <span><i class="fas fa-clock"></i> 80 Contact Hours</span>
+            <span><i class="fas fa-layer-group"></i> 10 Modules</span>
+            <span><i class="fas fa-calendar-check"></i> Launch: 5 Oct 2026</span>
+            <span><i class="fas fa-rupee-sign"></i> ₹3,500 / ₹9,000</span>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="syllabus-table">
+            <thead>
+              <tr><th>Module</th><th>Module Name &amp; Contents</th><th>Hours</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mod-num">1</td>
+                <td><div class="mod-name">Foundations of AI</div>Introduction to AI, Intelligent Systems, AI Applications Across Domains, AI Productivity Ecosystem, AI Safety Basics</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">2</td>
+                <td><div class="mod-name">Prompt Engineering and AI Communication</div>Prompt Writing, Conversational AI, AI Documentation, AI Translation Systems, AI Query Optimization</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">3</td>
+                <td><div class="mod-name">AI Research and Academic Productivity</div>AI Literature Review, AI Citation Systems, AI Summarization, AI Presentation Systems, AI Knowledge Extraction</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">4</td>
+                <td><div class="mod-name">AI for Business Productivity</div>AI Office Systems, AI Communication Automation, AI Scheduling Systems, AI Email Systems, AI Task Automation</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">5</td>
+                <td><div class="mod-name">AI Analytics and Dashboards</div>AI-powered Excel, Intelligent Dashboards, AI Visualization, Business Intelligence, AI Reporting Systems</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">6</td>
+                <td><div class="mod-name">AI Marketing and Branding</div>AI Advertisement Systems, AI Branding, AI Social Media Automation, AI Content Systems, AI Marketing Analytics</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">7</td>
+                <td><div class="mod-name">Workflow Automation</div>AI Workflow Systems, Automation Platforms, AI Triggers, API Integrations, Enterprise AI Automation</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">8</td>
+                <td><div class="mod-name">AI for Industry Applications</div>AI in Healthcare, AI in Agriculture, AI in Education, AI in Finance, AI in Management</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">9</td>
+                <td><div class="mod-name">No-Code AI Development</div>AI Chatbots, AI Website Builders, AI CRM Systems, AI Dashboards, AI Automation Platforms</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">10</td>
+                <td><div class="mod-name">Ethical and Responsible AI</div>AI Governance, AI Privacy, AI Fairness, AI Security, Future AI Trends</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="2">Total Contact Hours</td>
+                <td class="mod-hours">80</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ============ C1 PANEL ============ -->
+      <div class="syllabus-panel" id="panel-C1">
+        <div class="panel-header">
+          <h3>AI2026C1 — Enterprise AI & Intelligent Automation</h3>
+          <p>Executive Certification / Internship · Working professionals, faculty, office staff, entrepreneurs, managers</p>
+          <div class="panel-meta">
+            <span><i class="fas fa-clock"></i> 80 Contact Hours</span>
+            <span><i class="fas fa-layer-group"></i> 10 Modules</span>
+            <span><i class="fas fa-calendar-check"></i> Launch: 5 Oct 2026</span>
+            <span><i class="fas fa-rupee-sign"></i> ₹3,500 / ₹9,000</span>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="syllabus-table">
+            <thead>
+              <tr><th>Module</th><th>Module Name &amp; Contents</th><th>Hours</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mod-num">1</td>
+                <td><div class="mod-name">Enterprise AI Ecosystem</div>Enterprise AI Systems, AI Transformation, Intelligent Organizations, AI Collaboration Platforms, AI Productivity Engineering</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">2</td>
+                <td><div class="mod-name">AI Office Automation</div>AI Email Automation, AI Documentation Systems, AI Scheduling, AI Meeting Intelligence, AI Office Assistants</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">3</td>
+                <td><div class="mod-name">Workflow Automation Engineering</div>Workflow Automation, API Integrations, AI Triggers and Actions, Enterprise Automation Pipelines, AI Monitoring Systems</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">4</td>
+                <td><div class="mod-name">AI Analytics and Business Intelligence</div>AI Dashboards, KPI Systems, AI Reporting, Predictive Analytics, Intelligent Insights</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">5</td>
+                <td><div class="mod-name">AI Communication and Customer Systems</div>AI Chatbots, AI CRM Systems, AI Customer Support, NLP Systems, AI Collaboration Tools</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">6</td>
+                <td><div class="mod-name">AI Marketing and Branding Automation</div>AI Campaign Systems, AI Presentation Automation, AI Branding, AI Social Media Automation, AI Advertisement Systems</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">7</td>
+                <td><div class="mod-name">Multi-Agent AI Systems</div>Agentic AI, Multi-Agent Collaboration, Autonomous AI Systems, AI Decision Pipelines, Intelligent Orchestration</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">8</td>
+                <td><div class="mod-name">Cloud AI and Enterprise Platforms</div>Cloud-based AI, AI Deployment, Enterprise Dashboards, AI Integrations, AI Monitoring</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">9</td>
+                <td><div class="mod-name">AI Governance and Security</div>AI Governance, AI Compliance, AI Cybersecurity, Privacy Preservation, AI Risk Management</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr>
+                <td class="mod-num">10</td>
+                <td><div class="mod-name">Future Intelligent Enterprises</div>Industry 5.0, Autonomous Digital Employees, Human-AI Collaboration, Sustainable AI Systems, Future Enterprise Automation</td>
+                <td class="mod-hours">8</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="2">Total Contact Hours</td>
+                <td class="mod-hours">80</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SYLLABUS SNAPSHOT CAROUSEL ========== -->
+  <section class="carousel-section">
+    <div class="container">
+      <h2 class="section-title">Syllabus highlights</h2>
+      <p class="section-sub">A quick visual look at key modules across our AI Certification / Internship programs.</p>
 
       <div class="carousel-container" id="syllabusCarousel">
         <div class="carousel-track" id="carouselTrack">
@@ -738,7 +1180,7 @@
               </ul>
             </div>
             <div class="slide-hours">
-              <div class="big-number">8</div>
+              <div class="big-number">7</div>
               <div class="label">Hours</div>
             </div>
           </div>
@@ -756,7 +1198,7 @@
               </ul>
             </div>
             <div class="slide-hours">
-              <div class="big-number">8</div>
+              <div class="big-number">7</div>
               <div class="label">Hours</div>
             </div>
           </div>
@@ -834,8 +1276,8 @@
       <div class="leadership-grid">
         <div class="leadership-text">
           <h3>Vice-Chancellor's Message</h3>
-          <p>It gives me immense pleasure to welcome you to the AI Certificate Programs at Guru Ghasidas Vishwavidyalaya. In today's rapidly evolving digital landscape, Artificial Intelligence is not just a technological advancement—it is a transformative force reshaping every sector of our economy and society.</p>
-          <p>At GGV, we are committed to democratizing AI education and making it accessible to students from all disciplines. Our certificate programs are designed to equip learners with practical AI skills, ethical awareness, and the confidence to leverage intelligent tools for productivity, innovation, and career growth.</p>
+          <p>It gives me immense pleasure to welcome you to the AI Certification / Internship Programs at Guru Ghasidas Vishwavidyalaya. In today's rapidly evolving digital landscape, Artificial Intelligence is not just a technological advancement—it is a transformative force reshaping every sector of our economy and society.</p>
+          <p>At GGV, we are committed to democratizing AI education and making it accessible to students from all disciplines. Our certification and internship programs are designed to equip learners with practical AI skills, ethical awareness, and the confidence to leverage intelligent tools for productivity, innovation, and career growth.</p>
           <p>Whether you are a student, a working professional, or an entrepreneur, these programs will empower you to harness the power of AI responsibly and effectively. I encourage you to embark on this journey of discovery and become a part of India's AI-ready workforce.</p>
           <p style="margin-top: 12px; font-weight: 600; color: #0a2f6c;">— Prof. Alok Kumar Chakrawal<br><span style="font-weight: 400; font-size: 0.9rem; color: #4d627c;">Vice-Chancellor, Guru Ghasidas Vishwavidyalaya</span></p>
         </div>
@@ -856,12 +1298,16 @@
       <p class="section-sub">Quick answers about eligibility, certification, and program logistics.</p>
       <div class="faq-grid">
         <div class="faq-item">
-          <div class="faq-question">Who can enroll in these AI certificate programs? <i class="fas fa-chevron-down"></i></div>
-          <div class="faq-answer">Programs are open to 12th-pass students, non-CSE/IT graduates, working professionals, faculty, entrepreneurs, and managers. Each track has specific target groups – check the program cards above.</div>
+          <div class="faq-question">When does the course launch? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer">All three AI Certification / Internship programs launch on <strong>5 October 2026</strong>. Registration is open now. Weekend and evening batches are available.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">Who can enroll in these AI Certification / Internship programs? <i class="fas fa-chevron-down"></i></div>
+          <div class="faq-answer"><strong>AI2026A1:</strong> 12th-pass students (any stream). <strong>AI2026B1:</strong> Graduate students from Commerce, Arts, Agriculture, Science, Education, Pharmacy, Management, Civil, Mechanical, Biotechnology, Electrical, Electronics, CS, IT, AI, ML, or DS. <strong>AI2026C1:</strong> Working professionals, faculty, office staff, entrepreneurs, and managers.</div>
         </div>
         <div class="faq-item">
           <div class="faq-question">What is the duration and mode of delivery? <i class="fas fa-chevron-down"></i></div>
-          <div class="faq-answer">Duration is 3–4 months with 80 contact hours. Classes are held online/offline, preferably on weekends or evenings. Blended mode is also available.</div>
+          <div class="faq-answer">Duration is 3–4 months. <strong>AI2026A1:</strong> 70 contact hours (7h per module). <strong>AI2026B1:</strong> 80 contact hours (35h theory + 45h practical). <strong>AI2026C1:</strong> 80 contact hours (8h per module). Classes are held online/offline, preferably on weekends or evenings.</div>
         </div>
         <div class="faq-item">
           <div class="faq-question">What is the attendance requirement? <i class="fas fa-chevron-down"></i></div>
@@ -887,7 +1333,7 @@
   <section class="sop-section" id="sop">
     <div class="container">
       <h2 class="section-title">SOP – Enrollment & assessment</h2>
-      <p class="section-sub">Key academic and administrative guidelines for the certificate programs (AI2026A1/B1/C1).</p>
+      <p class="section-sub">Key academic and administrative guidelines for the AI Certification / Internship programs (AI2026A1/B1/C1).</p>
 
       <div class="table-responsive">
         <table>
@@ -895,9 +1341,9 @@
             <tr><th>Code</th><th>Program</th><th>Target group</th><th>Min. intake</th><th>Max batch</th></tr>
           </thead>
           <tbody>
-            <tr><td>AI2026A1</td><td>Certificate in Generative AI & Smart Digital Productivity</td><td>12th-pass (any stream)</td><td>20</td><td>60</td></tr>
-            <tr><td>AI2026B1</td><td>Professional Certificate in AI Productivity & Digital Transformation</td><td>Non-CSE/IT/AI&DS students</td><td>30</td><td>60</td></tr>
-            <tr><td>AI2026C1</td><td>Executive Certification in Enterprise AI & Intelligent Automation</td><td>Working professionals, faculty, entrepreneurs</td><td>20</td><td>60</td></tr>
+            <tr><td>AI2026A1</td><td>Certificate / Internship in Generative AI & Smart Digital Productivity</td><td>12th-pass students (any stream)</td><td>20</td><td>60</td></tr>
+            <tr><td>AI2026B1</td><td>Professional Certificate / Internship in AI Productivity & Digital Transformation</td><td>Graduate students</td><td>30</td><td>60</td></tr>
+            <tr><td>AI2026C1</td><td>Executive Certification / Internship in Enterprise AI & Intelligent Automation</td><td>Working professionals, faculty, office staff, entrepreneurs, managers</td><td>20</td><td>60</td></tr>
           </tbody>
         </table>
       </div>
@@ -929,13 +1375,14 @@
             </div>
           </div>
           <p><i class="fas fa-phone-alt"></i> +91 9826421549</p>
+          <p><i class="fas fa-rocket"></i> Launch: 5 October 2026</p>
         </div>
 
         <div class="footer-col">
           <h4>Programs</h4>
-          <a href="#programs">AI2026A1 – Generative AI</a>
-          <a href="#programs">AI2026B1 – AI Productivity</a>
-          <a href="#programs">AI2026C1 – Enterprise AI</a>
+          <a href="#programs">AI2026A1 – Generative AI (70h)</a>
+          <a href="#programs">AI2026B1 – AI Productivity (80h)</a>
+          <a href="#programs">AI2026C1 – Enterprise AI (80h)</a>
         </div>
 
         <div class="footer-col">
@@ -953,7 +1400,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Guru Ghasidas Vishwavidyalaya. All rights reserved. AI Certificate Programs (AI2026A1/B1/C1).</p>
+        <p>© 2026 Guru Ghasidas Vishwavidyalaya. All rights reserved. AI Certification / Internship Programs (AI2026A1/B1/C1).</p>
       </div>
     </div>
   </footer>
@@ -966,7 +1413,7 @@
       <!-- Form view -->
       <div id="popupFormView">
         <h3>Get Program Details</h3>
-        <p class="sub">Enter your details to download the brochure and stay updated.</p>
+        <p class="sub">Enter your details to download the brochure and stay updated. Launch: 5 October 2026.</p>
 
         <label for="popupEmail">Email Address <span style="color:#e74c3c;">*</span></label>
         <input type="email" id="popupEmail" placeholder="you@example.com">
@@ -1068,7 +1515,26 @@
       createHeroDots();
       updateHeroCarousel();
 
-      // ---------- SYLLABUS CAROUSEL ----------
+      // ---------- SYLLABUS TABS ----------
+      const syllabusTabs = document.querySelectorAll('.syllabus-tab');
+      const syllabusPanels = document.querySelectorAll('.syllabus-panel');
+
+      syllabusTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const program = tab.dataset.program;
+
+          // Update active tab
+          syllabusTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          // Update active panel
+          syllabusPanels.forEach(p => p.classList.remove('active'));
+          const targetPanel = document.getElementById('panel-' + program);
+          if (targetPanel) targetPanel.classList.add('active');
+        });
+      });
+
+      // ---------- SYLLABUS SNAPSHOT CAROUSEL ----------
       const track = document.getElementById('carouselTrack');
       const slides = Array.from(track.children);
       const prevBtn = document.getElementById('prevBtn');
